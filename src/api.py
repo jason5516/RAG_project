@@ -1,15 +1,19 @@
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
+from dotenv import load_dotenv
+load_dotenv()
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAI
 from langchain_openai import ChatOpenAI
 from rank_bm25 import BM25Okapi
 import numpy as np
+import re
 
 # 全域變數
 embedding = None
@@ -36,13 +40,12 @@ def initialize():
     bm25 = BM25Okapi(tokenizer_chunk)
 
     # 載入llm模型
-    api_key = os.environ.get("MINIMAX_API_KEY", "***REMOVED***")
+    api_key = os.environ.get("MINIMAX_API_KEY", "")
     llm = ChatOpenAI(
         model="MiniMax-M2.7",
         openai_api_key=api_key,
         openai_api_base="https://api.minimax.io/v1",
-        temperature=0.7,
-        max_tokens=512
+        temperature=0.7
     )
     print("✅ MiniMax LLM 初始化完成")
 
@@ -82,11 +85,22 @@ class ChatRequst(BaseModel):
 
 class ChatResponse(BaseModel):
     answer: str
-    sources: list[str]
+    think: str = ""
+    sources: list[str] = []
 
 @app.get("/health")
 async def health():
     return {"status":"ok"}
+
+
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    with open("static/index.html", "r", encoding="utf-8") as f:
+        return f.read()
+
+
+# Mount static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -111,8 +125,14 @@ async def chat(req: ChatRequst):
 
     # 呼叫 LLM
     answer = llm.invoke(prompt).content
+    think_match = re.search(r'<think>(.*?)</think>', answer, re.DOTALL)
+    think = think_match.group(1) if think_match else ""
+    final_answer = re.sub(r'<think>.*?</think>', "", answer, flags=re.DOTALL)
 
     # 取 sources
     sources = [chunk[:500].replace("\n", " ") for chunk in context_chunks]
 
-    return ChatResponse(answer=answer, sources=sources)
+    return ChatResponse(think=think, answer=final_answer, sources=sources)
+
+if __name__ == '__main__':
+    initialize()
