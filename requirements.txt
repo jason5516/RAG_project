@@ -10,3 +10,4 @@ openai
 chromadb
 uvicorn
 huggingface_hub
+sentence-transformers

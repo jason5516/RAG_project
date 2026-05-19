@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 
 # 複製 requirements.txt 並安裝
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --only-binary=:all: -r requirements.txt
 
 # 安裝額外依赖（rank_bm25 已由 requirements.txt 安裝）
 # fastapi 和 uvicorn 已在 requirements.txt 中，不需要重複安裝
