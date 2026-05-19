@@ -6,3 +6,8 @@ langchain_text_splitters
 numpy
 pydantic
 rank_bm25
+openai
+chromadb
+uvicorn
+huggingface_hub
+sentence-transformers
