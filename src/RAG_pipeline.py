@@ -6,11 +6,11 @@ import os
 
 
 # 將 PDF 檔案使用 loader 讀取進來
-loader = PyPDFLoader("data/paper.pdf")
+loader = PyPDFLoader("data/就學貸款.pdf")
 pages = loader.load()
 
 # 將讀取的資料作切塊
-splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=150, separators=["\n\n", "\n", "。", "，", " ", ""])
+splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=150, separators=["\n\n", "\n", "。", "，", " ", ""])
 chunks = splitter.split_documents(pages)
 print(f"切成 {len(chunks)} 個區塊")
 

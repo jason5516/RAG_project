@@ -9,7 +9,7 @@ embadding = HuggingFaceBgeEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
 db = Chroma(persist_directory="./chroma_db", embedding_function=embadding)
 
 # 進行相似度檢索(similarity)
-quary = "what is the contribution?"
+quary = "學貸的申貸條件是什麼?"
 results = db.similarity_search(quary, k=3)
 
 print(f"找到 {len(results)} 比結果")
