@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./src/
 
 # 複製 chroma_db（如果有的話）
-COPY chroma_db/ ./chroma_db/ 2>/dev/null || true
+COPY chroma_db/ ./chroma_db/
 
 # 環境變數（MINIMAX_API_KEY 在 Render dashboard 設定）
 ENV MINIMAX_API_KEY=
