@@ -318,7 +318,7 @@
             if (think) {
                 html += `
                     <div class="think-toggle" onclick="toggleThink(this)">思考過程</div>
-                    <div class="think-content">${escapeHtml(think)}</div>
+                    <div class="think-content">${escapeHtml(think.join('\n\n---\n\n'))}</div>
                 `;
             }
 
