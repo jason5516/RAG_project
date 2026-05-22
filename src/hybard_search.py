@@ -5,6 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import Chroma
 from rank_bm25 import BM25Okapi
+import jieba
 import numpy as np
 
 # 載入 embadding 與 語義資料庫
@@ -16,14 +17,14 @@ db = Chroma(persist_directory="./chroma_db", embedding_function=embadding)
 # 建立 BM25 index
 chunks = db.get()
 texts = chunks["documents"]
-tokenizer_chunk = [text.split() for text in texts]
+tokenizer_chunk = [jieba.lcut(text) for text in texts]
 bm25 = BM25Okapi(tokenizer_chunk)
 print("bm25 建立完成")
 
 # 建立 hybird_search 方法
 def hybird_search(query, k=5, alpha=0.4):
     #  BM25分數
-    bm25_score = bm25.get_scores(query.split())
+    bm25_score = bm25.get_scores(jieba.lcut(query))
     bm25_scores = bm25_score / (np.max(bm25_score) + 1e-8)
 
     #  similarity 分數
