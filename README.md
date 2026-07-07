@@ -8,9 +8,13 @@
 - 使用Minimax-M2.7作為基礎語言模型
 - Hybrid Search（BM25 + BGE embedding）
 
+新增
+- MCP Server 將 hybird_search 等 tools 包裝成 MCP
+- AI Agent 通過 MCP client 使用工具
+
 ## 如何啟動?
 首先通過conda建立環境，並通過requirements.txt安裝環境：`pip install -r requirements.txt`
-使用`uvicorn src.api:app --reload`啟動服務，在初始化時會自動建立資料庫並載入模型。
+使用`uvicorn src.api_mcp:app --reload`啟動服務，在初始化時會自動建立資料庫並載入模型。
 
 通過下列指令傳入問題。
 ```

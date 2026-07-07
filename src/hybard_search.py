@@ -43,13 +43,14 @@ def hybird_search(query, k=5, alpha=0.4):
 
     return sorted_results[:k]
 
-# 測試
-print("\n=== Hybird Search 測試 ===")
-results =  hybird_search("學貸的申貸條件是什麼?")
-for i in range(len(results)):
-    text, score = results[i]
-    print(f"--- 結果 {i+1} (分數: {score:.4f}) ---")
-    print(text[:300])
-    print()
+if __name__ == "__main__":
+    # 測試
+    print("\n=== Hybird Search 測試 ===")
+    results =  hybird_search("學貸的申貸條件是什麼?")
+    for i in range(len(results)):
+        text, score = results[i]
+        print(f"--- 結果 {i+1} (分數: {score:.4f}) ---")
+        print(text[:300])
+        print()
 
 
