@@ -119,23 +119,6 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[str]:
     return sources
 
 
-
-async def classify_intent(req, history_texts):
-    intent_prompt = f"""簡單判斷用戶問題是否需要使用RAG尋找文件資料。如果需要就回覆document，不需要則回覆general。
-    只能回覆 document / general 其一：
-    歷史對話：{history_texts}
-    問題：{req.query}
-    意圖："""
-
-    result = (await llm.ainvoke(intent_prompt)).content.strip().lower()
-    final_answer = re.sub(r"<think>.*?</think>", "", result, flags=re.DOTALL)
-    
-    if "document" in final_answer:
-        return "document"
-    else:
-        return "general"
-
-
 async def initialize():
     # 使用全域變數
     global embedding, db, bm25, texts, agent, conversation_history, tavily, llm
@@ -213,8 +196,8 @@ async def chat(req: ChatRequst):
     history_texts = conversation_history.load_memory_variables({}).get("history", "")
    
     prompt = f"""
-        你可以使用 search_docs 工具查找文件內容。請用繁體中文回答用戶。
-        若有使用工具，請根據查得內容回答，不要自行捏造。
+        優先使用 search_docs 工具查找文件內容回答用戶問題。請用繁體中文回答用戶。
+        請根據查得內容回答，不要自行捏造。
         歷史對話：{history_texts}
         問題：{req.query}
         回答：

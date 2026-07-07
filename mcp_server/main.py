@@ -45,7 +45,7 @@ def calculator(exp: str) -> str:
         if not re.match(r'^[\d\s\+\-\*\/\.\(\)]+$', exp):
             return "計算錯誤：只支援數學運算"
         result = eval(exp)
-        return result
+        return str(result)
     except ZeroDivisionError:
         return "計算錯誤：除數不能為零"
     except:
