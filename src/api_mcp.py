@@ -70,8 +70,8 @@ def extract_final_answer(messages: list[Any]) -> str:
     return ""
 
 # 假設模型有使用 doc_search() 將引用資料回傳
-def extract_sources_from_tool_messages(messages: list[Any]) -> list[str]:
-    sources: list[str] = []
+def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
+    sources = []
 
     for message in messages:
         if not isinstance(message, ToolMessage):
@@ -86,9 +86,11 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[str]:
                 if isinstance(structured[item], list):
                     for resource in structured[item]:
                         if 'content' in resource:
-                            content = str(resource["content"]).strip()
-                            if content:
-                                sources.append(content[:500].replace("\n", " "))
+                            sources.append({
+                                "content": str(resource["content"][:500]).strip(),
+                                "rank": resource["rank"],
+                                "score": resource["score"],
+                            })
             continue
         
         # Fallback 如果沒有 structured_content 或是格式不同，從原始訊息作為 source。 
@@ -101,8 +103,12 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[str]:
                 for item in parsed:
                     if isinstance(item, dict) and "content" in item:
                         content = str(item["content"]).strip()
-                        if content:
-                            sources.append(content[:500].replace("\n", " "))
+                        sources.append({
+                            "content": content[:500].replace("\n", " "),
+                            "rank": len(sources) + 1,
+                            "score": 0.0,
+                            "source_type": "fallback"
+                        })
 
             elif isinstance(parsed, dict):
                 result_items = parsed.get("result")
@@ -172,7 +178,7 @@ class ChatRequst(BaseModel):
 class ChatResponse(BaseModel):
     answer: str
     think: list[str] = []
-    sources: list[str] = []
+    sources: list[dict] = []
 
 @app.get("/health")
 async def health():

@@ -11,6 +11,8 @@ add(a: number, b: number) -> number : 回傳兩數相加結果
 
 # 新增既有功能
 search_docs(query: str, k: int = 5) -> list[dict] : 進行RAG文件的查找，回傳前 k 筆分數高的資料以及其分數。
+
+calculator(exp: str) -> str : 用於計算數學式。
 ```
 出現錯誤則將訊息寫進stderr。
 

@@ -29,10 +29,11 @@ def search_docs(query: str, k: int) -> list[dict]:
     ref = hybird_search(query, k)
     result = [
         {
+            "rank": idx + 1,
             "content": text,
             "score": float(score),
         }
-        for text, score in ref
+        for idx, (text, score) in enumerate(ref)
     ]
     
 

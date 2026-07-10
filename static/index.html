@@ -196,6 +196,44 @@
             display: block;
         }
 
+        .source-entry {
+            background: white;
+            border: 1px solid #e4e7eb;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .source-entry + .source-entry {
+            margin-top: 12px;
+        }
+
+        .source-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .source-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #eef4ff;
+            color: #245ea8;
+        }
+
+        .source-text {
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #444;
+            border-top: 1px dashed #d9dde3;
+            padding-top: 10px;
+        }
+
         .loading {
             color: #999;
             font-style: italic;
@@ -325,7 +363,7 @@
             if (sources && sources.length > 0) {
                 html += `
                     <div class="think-toggle" onclick="toggleSources(this)">引用片段（${sources.length}）</div>
-                    <div class="sources-content">${escapeHtml(sources.join('\n\n---\n\n'))}</div>
+                    <div class="sources-content">${renderSources(sources)}</div>
                 `;
             }
 
@@ -356,6 +394,47 @@
         function toggleThink(el) {
             el.classList.toggle('open');
             el.nextElementSibling.classList.toggle('show');
+        }
+
+        function renderSources(sources) {
+            return sources.map((source, index) => {
+                if (source && typeof source === 'object' && !Array.isArray(source)) {
+                    const rank = source.rank ?? index + 1;
+                    const score = formatSourceScore(source.score);
+                    const sourceType = source.source_type ? `
+                        <span class="source-badge">類型：${escapeHtml(String(source.source_type))}</span>
+                    ` : '';
+                    const content = escapeHtml(String(source.content ?? ''));
+
+                    return `
+                        <div class="source-entry">
+                            <div class="source-meta">
+                                <span class="source-badge">引用 #${escapeHtml(String(rank))}</span>
+                                <span class="source-badge">相關分數：${escapeHtml(score)}</span>
+                                ${sourceType}
+                            </div>
+                            <div class="source-text">${content}</div>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="source-entry">
+                        <div class="source-meta">
+                            <span class="source-badge">引用 #${index + 1}</span>
+                        </div>
+                        <div class="source-text">${escapeHtml(String(source ?? ''))}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function formatSourceScore(score) {
+            const numericScore = Number(score);
+            if (!Number.isFinite(numericScore)) {
+                return 'N/A';
+            }
+            return numericScore.toFixed(4);
         }
 
         function escapeHtml(text) {
