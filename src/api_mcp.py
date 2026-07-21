@@ -106,7 +106,7 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
                         sources.append({
                             "content": content[:500].replace("\n", " "),
                             "rank": len(sources) + 1,
-                            "score": 0.0,
+                            "score": item["score"],
                             "source_type": "fallback"
                         })
 

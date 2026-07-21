@@ -1,4 +1,8 @@
 data/
+docs/
+outputs/
+node_modules/
+chroma_db/
 .env
 *.pyc
 .vscode/

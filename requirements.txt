@@ -11,3 +11,4 @@ chromadb
 uvicorn
 huggingface_hub
 sentence-transformers
+mcp[cli]==1.28.1
