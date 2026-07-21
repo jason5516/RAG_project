@@ -3,6 +3,7 @@ langchain
 langchain_community
 langchain_openai
 langchain_text_splitters
+langchain-mcp-adapters
 numpy
 pydantic
 rank_bm25
@@ -11,4 +12,5 @@ chromadb
 uvicorn
 huggingface_hub
 sentence-transformers
+jieba
 mcp[cli]==1.28.1
