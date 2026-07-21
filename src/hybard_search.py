@@ -8,21 +8,39 @@ from rank_bm25 import BM25Okapi
 import jieba
 import numpy as np
 
-# 載入 embadding 與 語義資料庫
-embadding = HuggingFaceBgeEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
-db = Chroma(persist_directory="./chroma_db", embedding_function=embadding)
 
+embedding = None
+db = None
+texts = None
+bm25 = None
 
+def initialize_retriever():
+    global embedding, db, texts, bm25
 
-# 建立 BM25 index
-chunks = db.get()
-texts = chunks["documents"]
-tokenizer_chunk = [jieba.lcut(text) for text in texts]
-bm25 = BM25Okapi(tokenizer_chunk)
-print("bm25 建立完成")
+    if embedding is not None and db is not None and texts is not None and bm25 is not None:
+        return
+
+    # 載入 embadding 與 語義資料庫
+    embedding = HuggingFaceBgeEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
+    db = Chroma(persist_directory="./chroma_db", embedding_function=embedding)
+
+    chunks = db.get()
+    texts = chunks.get("documents", []) or []
+
+    if not texts:
+        bm25 = None
+        return
+    
+    # 建立 BM25 index
+    tokenized_chunks = [jieba.lcut(text) for text in texts]
+    bm25 = BM25Okapi(tokenized_chunks)
 
 # 建立 hybird_search 方法
 def hybird_search(query, k=5, alpha=0.4):
+
+    # 初始化資料庫
+    initialize_retriever()
+
     #  BM25分數
     bm25_score = bm25.get_scores(jieba.lcut(query))
     bm25_scores = bm25_score / (np.max(bm25_score) + 1e-8)
