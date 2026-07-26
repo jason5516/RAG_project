@@ -3,13 +3,19 @@ os.environ["CUDA_VISIBLE_DEVICES"] = ""
 from dotenv import load_dotenv
 load_dotenv()
 
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MCP_SERVER_PATH = PROJECT_ROOT / "mcp_server" / "main.py"
+
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from langchain_openai import ChatOpenAI
-from langchain_classic.memory import ConversationSummaryMemory
+from langchain_classic.memory import ConversationBufferWindowMemory
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain.agents import create_agent
 import re
@@ -18,11 +24,18 @@ import json
 from typing import Any
 from langchain_core.messages import AIMessage, ToolMessage
 
+from contextlib import asynccontextmanager, AsyncExitStack
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from langchain_mcp_adapters.tools import load_mcp_tools
+
 # 全域變數
 agent = None
 conversation_history = None
 tavily = None
 llm = None
+mcp_client = None
+mcp_session = None
+mcp_exit_stack = None
 
 # 用於 fallback 方案，從 raw_data 中取出 json 格式檔案
 def extract_json_candidate(raw_text: str) -> str | None:
@@ -82,20 +95,27 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
         if isinstance(artifact, dict):
             structured = artifact.get("structured_content")
 
-            for item in structured:
-                if isinstance(structured[item], list):
-                    for resource in structured[item]:
-                        if 'content' in resource:
-                            sources.append({
-                                "content": str(resource["content"][:500]).strip(),
-                                "rank": resource["rank"],
-                                "score": resource["score"],
-                            })
+            if isinstance(structured, dict):
+                for item in structured:
+                    if isinstance(structured[item], list):
+                        for resource in structured[item]:
+                            if "content" in resource:
+                                content = str(resource["content"]).strip()
+                                if not content:
+                                    continue
+                                sources.append({
+                                    "content": content[:500],
+                                    "rank": resource.get("rank", len(sources) + 1),
+                                    "score": resource.get("score"),
+                                })
             continue
         
         # Fallback 如果沒有 structured_content 或是格式不同，從原始訊息作為 source。 
         raw_text = message_content_to_text(message.content).strip()
         json_candidate = extract_json_candidate(raw_text)
+        if not json_candidate:
+            continue
+
         try:
             parsed = json.loads(json_candidate)
 
@@ -106,7 +126,7 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
                         sources.append({
                             "content": content[:500].replace("\n", " "),
                             "rank": len(sources) + 1,
-                            "score": item["score"],
+                            "score": item.get("score"),
                             "source_type": "fallback"
                         })
 
@@ -117,7 +137,12 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
                         if isinstance(item, dict) and "content" in item:
                             content = str(item["content"]).strip()
                             if content:
-                                sources.append(content[:500].replace("\n", " "))
+                                sources.append({
+                                    "content": content[:500].replace("\n", " "),
+                                    "rank": len(sources) + 1,
+                                    "score": item.get("score"),
+                                    "source_type": "fallback",
+                                })
 
         except json.JSONDecodeError:
             pass
@@ -127,7 +152,7 @@ def extract_sources_from_tool_messages(messages: list[Any]) -> list[dict]:
 
 async def initialize():
     # 使用全域變數
-    global embedding, db, bm25, texts, agent, conversation_history, tavily, llm
+    global agent, conversation_history, tavily, llm
 
     # 載入llm模型
     api_key = os.environ.get("MINIMAX_API_KEY", "")
@@ -138,7 +163,14 @@ async def initialize():
         temperature=0.7
     )
 
-    conversation_history = ConversationSummaryMemory(llm=llm)
+    # 改成保留最近幾輪的記憶
+    conversation_history = ConversationBufferWindowMemory(
+        k=3,
+        memory_key="history",
+        input_key="input",
+        output_key="output",
+        return_messages=False,
+    )
 
     client = MultiServerMCPClient(
         {
@@ -152,7 +184,30 @@ async def initialize():
         }
     )
 
-    mcp_tools = await client.get_tools()
+    # 舊版 MCP tool
+    # mcp_tools = await client.get_tools()
+
+    global mcp_client, mcp_session, mcp_exit_stack
+
+    mcp_client = MultiServerMCPClient(
+        {
+            "rag_tools": {
+                "transport": "stdio",
+                "command": sys.executable,
+                "args": [str(MCP_SERVER_PATH)],
+                
+            }
+        }
+    )
+
+    mcp_exit_stack = AsyncExitStack()
+    mcp_session = await mcp_exit_stack.enter_async_context(
+        mcp_client.session("rag_tools")
+    )
+
+    # 傳入 session，tools 會重用這個已連線的 MCP server。
+    mcp_tools = await load_mcp_tools(mcp_session)
+
     agent = create_agent(
         model=llm,
         tools=mcp_tools,
@@ -167,7 +222,11 @@ async def initialize():
 async def lifespan(app: FastAPI):
     # 啟動時進行初始化
     await initialize()
-    yield
+    try:
+        yield
+    finally:
+        if mcp_exit_stack is not None:
+            await mcp_exit_stack.aclose()
     
 
 app = FastAPI(title="RAG chat API", lifespan=lifespan)
@@ -224,7 +283,7 @@ async def chat(req: ChatRequst):
 
     sources = extract_sources_from_tool_messages(messages)
     if not sources:
-        sources = ["本輪對話無需引用"]
+        sources = [{"content": "本輪對話無需引用", "source_type": "notice"}]
 
     # 將本輪對話加入memory並更新
     conversation_history.save_context(

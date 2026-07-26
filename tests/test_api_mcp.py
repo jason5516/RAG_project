@@ -1,4 +1,5 @@
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
+import asyncio
 import sys
 from pathlib import Path
 
@@ -6,7 +7,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+import src.api_mcp as api_mcp
 from src.api_mcp import (
+    ChatRequst,
     extract_final_answer,
     extract_json_candidate,
     extract_sources_from_tool_messages,
@@ -124,7 +127,6 @@ def test_extract_sources_from_tool_messages_reads_structured_content_artifact():
     assert result[0]["content"] == "這是第一筆來源"
     assert result[0]["score"] == 0.91
 
-
 def test_extract_sources_from_tool_messages_reads_sources_from_fallback_json_text():
     tool_message = ToolMessage(
         content='[{"rank":1,"content":"fallback source","score":0.75}]',
@@ -137,3 +139,29 @@ def test_extract_sources_from_tool_messages_reads_sources_from_fallback_json_tex
     assert result[0]["rank"] == 1
     assert result[0]["content"] == "fallback source"
     assert result[0]["score"] == 0.75
+
+# 新增測試：忽略非json格式回應
+def test_extract_sources_from_tool_messages_ignores_non_json_tool_output():
+    tool_message = ToolMessage(content="tool output", tool_call_id="call_3")
+
+    assert extract_sources_from_tool_messages([tool_message]) == []
+
+# 新增測試：檢查沒有引用文件的輸出
+def test_chat_returns_dictionary_source_when_the_agent_does_not_use_a_tool(monkeypatch):
+    class FakeAgent:
+        async def ainvoke(self, _input):
+            return {"messages": [AIMessage(content="不需要查詢文件的回答")]}
+
+    class FakeMemory:
+        def load_memory_variables(self, _input):
+            return {"history": ""}
+
+        def save_context(self, _input, _output):
+            pass
+
+    monkeypatch.setattr(api_mcp, "agent", FakeAgent())
+    monkeypatch.setattr(api_mcp, "conversation_history", FakeMemory())
+
+    response = asyncio.run(api_mcp.chat(ChatRequst(query="你好")))
+
+    assert response.sources == [{"content": "本輪對話無需引用", "source_type": "notice"}]

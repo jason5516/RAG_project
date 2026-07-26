@@ -1,7 +1,6 @@
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import Chroma
 from rank_bm25 import BM25Okapi
