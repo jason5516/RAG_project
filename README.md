@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ## 環境變數
 先建立 `.env` 並設定以下變數：
-- `MINIMAX_AI_KEY` 或是其他模型的 API KEY
+- `MINIMAX_API_KEY` 或是其他模型的 API KEY
 - `OPENWEATHER_API_KEY` (天氣查詢功能，若有使用)
 
 啟動API服務：

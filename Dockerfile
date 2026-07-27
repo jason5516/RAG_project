@@ -27,4 +27,4 @@ ENV MINIMAX_API_KEY=
 EXPOSE 8000
 
 # 啟動命令
-CMD ["uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "src.api_mcp:app", "--host", "0.0.0.0", "--port", "8000"]
