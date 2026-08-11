@@ -13,6 +13,14 @@ db = None
 texts = None
 bm25 = None
 
+def reset_retriever() -> None:
+    global embedding, db, texts, bm25
+
+    embedding = None
+    db = None
+    texts = None
+    bm25 = None
+
 def initialize_retriever():
     global embedding, db, texts, bm25
 
@@ -61,9 +69,21 @@ def hybird_search(query, k=5, alpha=0.4):
     return sorted_results[:k]
 
 if __name__ == "__main__":
+
+    reset_retriever()
+
     # 測試
     print("\n=== Hybird Search 測試 ===")
     results =  hybird_search("學貸的申貸條件是什麼?")
+    print(f"=== 問題：學貸的申貸條件是什麼? ===")
+    for i in range(len(results)):
+        text, score = results[i]
+        print(f"--- 結果 {i+1} (分數: {score:.4f}) ---")
+        print(text[:300])
+        print()
+
+    results =  hybird_search("碩士口試前需要準備哪些東西?")
+    print(f"=== 問題：碩士口試前需要準備哪些東西? ===")
     for i in range(len(results)):
         text, score = results[i]
         print(f"--- 結果 {i+1} (分數: {score:.4f}) ---")

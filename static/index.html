@@ -283,7 +283,18 @@
     </style>
 </head>
 <body>
-    <header>RAG Chat</header>
+    <header>
+        RAG Chat
+
+        <div id="upload-area">
+            <input id="document-input" type="file" accept=".pdf,application/pdf">
+            <button id="upload-btn" onclick="uploadDocument()">上傳並建立知識庫</button>
+            <span id="upload-status"></span>
+        </div>
+    </header>
+
+    
+    
 
     <div id="chat-container"></div>
 
@@ -441,6 +452,45 @@
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }
+
+        async function uploadDocument() {
+            const input = document.getElementById("document-input");
+            const button = document.getElementById("upload-btn");
+            const status = document.getElementById("upload-status");
+            const file = input.files[0];
+
+            if (!file) {
+                status.textContent = "請先選擇 PDF 檔案。";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            button.disabled = true;
+            status.textContent = "建庫中，請稍候...";
+
+            try {
+                const response = await fetch("/admin/documents", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.detail || "上傳失敗");
+                }
+
+                status.textContent =
+                    `完成：${data.filename}，共建立 ${data.chunk_count} 個 chunks。`;
+                input.value = "";
+            } catch (error) {
+                status.textContent = `失敗：${error.message}`;
+            } finally {
+                button.disabled = false;
+            }
         }
     </script>
 </body>

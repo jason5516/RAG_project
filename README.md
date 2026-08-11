@@ -27,19 +27,35 @@ conda activate airag
 pip install -r requirements.txt
 ```
 
+### 建立知識庫
+
+將要檢索的 PDF 放入 `data/` 目錄。建庫程式會自動掃描該目錄內的所有 `.pdf` 檔案，將文件切分為 chunks，並建立 ChromaDB 向量資料庫。
+
+```bash
+python -m src.RAG_pipeline
+```
+
+建庫完成後，可用以下指令快速確認檢索功能：
+
+```bash
+python -m src.hybard_search
+```
+
 ## 環境變數
 先建立 `.env` 並設定以下變數：
 - `MINIMAX_API_KEY` 或是其他模型的 API KEY
 - `OPENWEATHER_API_KEY` (天氣查詢功能，若有使用)
 
-啟動API服務：
+### 啟動 API 服務
 
 ```bash
 uvicorn src.api_mcp:app --reload
 ```
 
-備註：
-開發或測試 MCP Server
+啟動後，在瀏覽器開啟 `http://127.0.0.1:8000` 使用對話介面；健康檢查端點為 `http://127.0.0.1:8000/health`。
+
+### 開發或測試 MCP Server
+
 ```bash
 mcp dev mcp_server/main.py
 ```

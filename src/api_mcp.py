@@ -9,7 +9,12 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MCP_SERVER_PATH = PROJECT_ROOT / "mcp_server" / "main.py"
 
-from fastapi import FastAPI
+from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.concurrency import run_in_threadpool
+
+from src.RAG_pipeline import DEFAULT_DATA_DIR, rebuild_knowledge_base
+from src.hybard_search import reset_retriever
+
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
@@ -36,6 +41,7 @@ llm = None
 mcp_client = None
 mcp_session = None
 mcp_exit_stack = None
+
 
 # 用於 fallback 方案，從 raw_data 中取出 json 格式檔案
 def extract_json_candidate(raw_text: str) -> str | None:
@@ -239,9 +245,59 @@ class ChatResponse(BaseModel):
     think: list[str] = []
     sources: list[dict] = []
 
+class UploadResponse(BaseModel):
+    filename: str
+    status: str
+    document_count: int
+    page_count: int
+    chunk_count: int
+
 @app.get("/health")
 async def health():
     return {"status":"ok"}
+
+MAX_UPLOAD_BYTES = 20 * 1024 * 1024
+
+@app.post("/admin/documents", response_model=UploadResponse)
+async def upload_document(file: UploadFile = File(...)):
+    filename = Path(file.filename or "").name
+
+    if not filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="只允許上傳 PDF 檔案")
+
+    if not filename:
+        raise HTTPException(status_code=400, detail="檔名不可為空")
+
+    content = await file.read(MAX_UPLOAD_BYTES + 1)
+    await file.close()
+
+    if len(content) > MAX_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail="檔案不可超過 20 MB")
+
+    target_path = DEFAULT_DATA_DIR / filename
+
+    if target_path.exists():
+        raise HTTPException(
+            status_code=409,
+            detail=f"檔案已存在：{filename}，請更名後再上傳",
+        )
+
+    try:
+        target_path.write_bytes(content)
+
+        # embedding 與 ChromaDB 建立是同步且耗時的工作，避免阻塞 async event loop。
+        result = await run_in_threadpool(rebuild_knowledge_base)
+        reset_retriever()
+
+    except Exception as error:
+        target_path.unlink(missing_ok=True)
+        raise HTTPException(status_code=500, detail=f"建庫失敗：{error}") from error
+
+    return UploadResponse(
+        filename=filename,
+        status="indexed",
+        **result,
+        )
 
 
 @app.get("/", response_class=HTMLResponse)
