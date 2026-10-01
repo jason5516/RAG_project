@@ -1,0 +1,2661 @@
+{
+  "run_at": "2026-09-28T08:18:20.212093+00:00",
+  "config": {
+    "top_k": 5,
+    "collection": "langchain",
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "generation_model": "MiniMax-M2.7",
+    "hybrid_alpha_bm25": 0.4,
+    "hybrid_alpha_vector": 0.6,
+    "generation_temperature": 0
+  },
+  "corpus": {
+    "chunk_count": 14,
+    "fingerprint": "fef01d2b0f9e478e763c70b4ba8c0324b3732e486d16cf1422ef6869da1879b6",
+    "chunk_ids": [
+      "114-2資工系研究生畢業學位口試時程表-0001",
+      "114-2資工系研究生畢業學位口試時程表-0002",
+      "114-2資工系研究生畢業學位口試時程表-0003",
+      "114-2資工系研究生畢業學位口試時程表-0004",
+      "114-2資工系研究生畢業學位口試時程表-0005",
+      "114-2資工系研究生畢業學位口試時程表-0006",
+      "114-2資工系研究生畢業學位口試時程表-0007",
+      "114-2資工系研究生畢業學位口試時程表-0008",
+      "114-2資工系研究生畢業學位口試時程表-0009",
+      "就學貸款-0010",
+      "就學貸款-0011",
+      "就學貸款-0012",
+      "就學貸款-0013",
+      "就學貸款-0014"
+    ]
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "category": "date_range",
+      "query": "如果想在上學期或下學期舉行學位口試，兩個學期各自允許的日期區間是什麼？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0001"
+        ]
+      ],
+      "gold_facts": [
+        "第一學期（上學期）的學位口試舉行期間為 10 月 1 日至隔年 1 月 31 日。",
+        "第二學期（下學期）的學位口試舉行期間為 4 月 1 日至 7 月 31 日。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 7.757447935948749
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0009",
+              "score": 6.01409104903383
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 5.7434664821266175
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 4.570201122581687
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 3.089391544393359
+            }
+          ],
+          "latency_ms": 0.915384000109043,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，國立臺灣科技大學資訊工程系研究生畢業學位口試時程表的日期區間如下：\n\n- **第一學期（上學期）**：10月1日至隔年1月31日\n- **第二學期（下學期）**：4月1日至7月31日",
+          "generation_latency_ms": 4420.690449999711,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "answer 完全匹配 gold_facts，提供的兩個學期口試日期區間與 retrieved context（rank=1 chunk）完全一致，資訊完整且正確。",
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8195.757911000328
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -0.5108708143234253,
+              "distance": 0.5108708143234253
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.6684045791625977,
+              "distance": 0.6684045791625977
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.6870223879814148,
+              "distance": 0.6870223879814148
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.6990512609481812,
+              "distance": 0.6990512609481812
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": -0.7080813646316528,
+              "distance": 0.7080813646316528
+            }
+          ],
+          "latency_ms": 97.21820899994782,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，國立臺灣科技大學資訊工程系研究生畢業學位口試的允許日期區間如下：\n\n- **第一學期（上學期）**：10月1日至隔年1月31日\n- **第二學期（下學期）**：4月1日至7月31日",
+          "generation_latency_ms": 4977.18555099982,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且正確地回覆了問題的兩個面向。第一學期日期區間（10月1日至隔年1月31日）及第二學期日期區間（4月1日至7月31日）皆與檢索內容中的表格資訊完全一致，無任何錯誤或遺漏。答案清楚標明資訊來源為檢索內容，並以結構化方式呈現兩個學期的日期區間。",
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 9158.78112900009
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.6934775108903113
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0009",
+              "score": 0.37643620584710286
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 0.3344505573003161
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.3176868603927758
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.3028642144149118
+            }
+          ],
+          "latency_ms": 0.05344200008039479,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，學位口試允許的日期區間如下：\n\n- **第一學期（上學期）**：10月1日至隔年1月31日\n- **第二學期（下學期）**：4月1日至7月31日",
+          "generation_latency_ms": 2745.5191580002065,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且準確地涵蓋了兩項金標準事實。答案中的日期區間與檢索內容（rank 1 chunk_id=114-2資工系研究生畢業學位口試時程表-0001）完全一致，第一學期為10月1日至隔年1月31日，第二學期為4月1日至7月31日，無任何錯誤或矛盾。",
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7569.776891999936
+        }
+      }
+    },
+    {
+      "id": "Q02",
+      "category": "threshold",
+      "query": "Turnitin 相似度多少以下時能通過？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0002"
+        ]
+      ],
+      "gold_facts": [
+        "不含參考書目的論文本文相似度低於 30%（含 30%）視為通過。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 5.495532989357254
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": 3.2211182180771845
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 2.5178600439910825
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 2.446274456178208
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 1.0081903780073151
+            }
+          ],
+          "latency_ms": 0.49976699983744766,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，國立臺灣科技大學資訊工程系研究生畢業學位口試時程表明確規定：\n\n**Turnitin 相似度標準為：以不含參考書目之論文本文，低於 30%（含）之相似性視為通過。**\n\n此外，該系使用 Turnitin 時，篩選條件僅開放使用「排除參考書目」項目，其餘項目一律不得使用。",
+          "generation_latency_ms": 4329.525542999818,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "answer 與 retrieved context (rank 1) 完全一致：直接引用「以不含參考書目之論文本文低於 30%(含)之相似性視為通過」，且與 gold_facts 完全吻合，無錯誤或遺漏。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7407.363771999826
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": -1.045295000076294,
+              "distance": 1.045295000076294
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -1.0825594663619995,
+              "distance": 1.0825594663619995
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -1.1622209548950195,
+              "distance": 1.1622209548950195
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -1.187859058380127,
+              "distance": 1.187859058380127
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -1.2030892372131348,
+              "distance": 1.2030892372131348
+            }
+          ],
+          "latency_ms": 94.96311799966861,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，**Turnitin 相似度需低於 30%（含）才能通過**。\n\n詳細說明如下：\n\n- **標準**：以不含參考書目之論文本文，低於 30%（含）之相似性視為通過\n- **篩選條件**：本系使用 Turnitin 之篩選條件僅開放使用「排除參考書目」項目，其餘項目一律不得使用\n- **繳交時機**：學位考試當日須將論文原創性比對報告書送交指導教授及學位考試委員參考",
+          "generation_latency_ms": 3994.872728000246,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地回答了問題，提供了gold facts中的所有必要資訊（不含參考書目的論文本文相似度低於30%（含）視為通過），並額外補充了篩選條件及繳交時機等相關資訊，且所有內容皆可於retrieved context中找到對應支持，無矛盾或錯誤。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8718.671100999927
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 0.37282299922635975
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.1337302595765273
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.0312918006215335
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.01213898974632538
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.027370553120021485
+            }
+          ],
+          "latency_ms": 0.07764100018903264,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，國立臺灣科技大學資訊工程系的論文原創性比對標準為：\n\n**以不含參考書目之論文本文，低於 30%（含）之相似性，視為通過。**\n\n此外，該系使用 Turnitin 時的篩選條件僅開放使用「排除參考書目」項目，其餘項目一律不得使用。",
+          "generation_latency_ms": 4990.636079000069,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地覆蓋了 gold facts 的所有必要事實，與 retrieved context（rank=1）中「以不含參考書目之論文本文低於 30%(含)之相似性視為通過」的內容完全一致，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 5929.332423999767
+        }
+      }
+    },
+    {
+      "id": "Q03",
+      "category": "deadline_and_consequence",
+      "query": "112 學年度起入學的新生，最晚何時要把論文題目與研究目的送審？沒有按時完成會怎樣？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0003"
+        ]
+      ],
+      "gold_facts": [
+        "應於學位考試前一學期，或最遲於學位考試當學期全校加退選截止前送審。",
+        "未依期限確認與系所專業領域相符者，不得申請學位考試。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 13.676634768213345
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 9.835245813764443
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 4.303416373769728
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 4.073851539430305
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": 3.2216063231281846
+            }
+          ],
+          "latency_ms": 1.5444919999936246,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容規定如下：\n\n### 最晚送審時限\n\n112 學年度起入學新生，須於**學位考試前一學期**，或**最遲於學位考試當學期全校加退選截止前**，將論文題目及研究目的送交系所審查是否與系所專業領域相符。\n\n### 未按時完成的後果\n\n**未依規定期限送交系所審查確認與所屬系所專業領域相符者，不得申請學位考試。**",
+          "generation_latency_ms": 4264.329992000057,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整涵蓋了兩項必要事實：(1) 送審時限（學位考試前一學期或學位考試當學期全校加退選截止前）；(2) 未依期限送審的後果（不得申請學位考試）。兩項內容均與 retrieved context 完全一致，無矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8695.516004000183
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -0.6023488640785217,
+              "distance": 0.6023488640785217
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": -0.6111908555030823,
+              "distance": 0.6111908555030823
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.6354503631591797,
+              "distance": 0.6354503631591797
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.7306632995605469,
+              "distance": 0.7306632995605469
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.7797856330871582,
+              "distance": 0.7797856330871582
+            }
+          ],
+          "latency_ms": 19.17447200003153,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.3333333333333333,
+            "first_relevant_rank": 3,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容：\n\n**最晚時限：**\n112學年度起入學的新生，須於**學位考試前一學期**或**最遲於學位考試當學期全校加退選截止前**，將論文題目及研究目的送交系所審查是否與系所專業領域相符。\n\n**未按時完成的後果：**\n未依規定期限送交系所審查確認與所屬系所專業領域相符者，**不得申請學位考試**。",
+          "generation_latency_ms": 4545.474025999738,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完全準確地涵蓋了兩項必要事實：(1)時限為學位考試前一學期或最遲於學位考試當學期全校加退選截止前，(2)後果為不得申請學位考試。所有內容皆與retrieved context一致，無矛盾或缺失。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8197.800427999937
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 0.6332854864056809
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.5063808299903896
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.32714116388519004
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 0.2302677614915152
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 0.22681100496084974
+            }
+          ],
+          "latency_ms": 0.0694840000505792,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容：\n\n### 最晚時限\n112 學年度起入學新生，須於**學位考試前一學期**或**最遲於學位考試當學期全校加退選截止前**，將論文題目及研究目的送交系所審查是否與系所專業領域相符。\n\n### 未按時完成的後果\n未依規定期限送交系所審查確認與所屬系所專業領域相符者，**不得申請學位考試**。",
+          "generation_latency_ms": 4961.413746000289,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且精確地涵蓋了兩個必要事實：截止時限（學位考試前一學期或最遲於學位考試當學期全校加退選截止前）與未按時完成的后果（不得申請學位考試）。這些資訊皆直接來自檢索內容，無任何錯誤或額外猜測。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7173.556325999925
+        }
+      }
+    },
+    {
+      "id": "Q04",
+      "category": "procedure",
+      "query": "碩士生申請口試前要先完成哪兩項線上作業？接著要從系統印出哪些文件？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0003"
+        ]
+      ],
+      "gold_facts": [
+        "先完成英文抵免線上申請及論文原創性比對報告書上傳。",
+        "再至學生資訊系統輸入口試資料。",
+        "列印學位論文考試申請書及學位考試委員名冊。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 3.7585202631696664
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0013",
+              "score": 2.2910766396165183
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0011",
+              "score": 1.5345370056951562
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 1.3298037249183197
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 1.2126359638683277
+            }
+          ],
+          "latency_ms": 1.1077009999098664,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，碩士生申請口試前須先完成以下**兩項線上作業**：\n\n1. **英文抵免線上申請**\n2. **論文原創性比對報告書上傳**\n\n完成後，再登錄本校學生資訊系統輸入口試資料，接著從系統印出以下**含研究生及指導教授簽章之文件**：\n\n1. **學位論文考試申請書**\n2. **學位考試委員名冊**\n\n這兩份文件需提交系辦並完成研討室之預約。",
+          "generation_latency_ms": 4998.271180999836,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋三項 gold facts：(1) 先完成英文抵免線上申請及論文原創性比對報告書上傳；(2) 再至學生資訊系統輸入口試資料；(3) 列印學位論文考試申請書及學位考試委員名冊。所有資訊均與 retrieved context 完全吻合，無矛盾或無根據之聲明。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 5585.772906000329
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.450945109128952,
+              "distance": 0.450945109128952
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.5077940821647644,
+              "distance": 0.5077940821647644
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.5345233678817749,
+              "distance": 0.5345233678817749
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.5365808010101318,
+              "distance": 0.5365808010101318
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -0.5475118160247803,
+              "distance": 0.5475118160247803
+            }
+          ],
+          "latency_ms": 18.978030000198487,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.25,
+            "first_relevant_rank": 4,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容，碩士生申請口試前的流程如下：\n\n### 口試前需完成的兩項線上作業：\n1. **英文抵免線上申請**\n2. **論文原創性比對報告書上傳**\n\n### 完成後需從系統列印的文件：\n- **學位論文考試申請書**\n- **學位考試委員名冊**\n\n（以上兩項文件需含研究生及指導教授簽章，提交系辦並完成研討室之預約）\n\n---\n原文出處：chunk_id=114-2資工系研究生畢業學位口試時程表-0004",
+          "generation_latency_ms": 5297.911445999944,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且正確地回答了問題的兩個部分。線上作業部分（英文抵免線上申請、論文原創性比對報告書上傳）及列印文件部分（學位論文考試申請書、學位考試委員名冊）皆與gold facts完全吻合，且所有資訊皆可由retrieved context（chunk_id=114-2資工系研究生畢業學位口試時程表-0003）明確驗證。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 10728.333235000264
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.6780515183296723
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.45848754918306034
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 0.3871553000066096
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 0.3759891921382882
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.362639984865012
+            }
+          ],
+          "latency_ms": 0.13007500001549488,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，碩士生申請口試前需要完成以下兩項線上作業：\n\n1. **英文抵免線上申請**\n2. **論文原創性比對報告書上傳**\n\n完成這兩項作業後，須登錄本校學生資訊系統，輸入口試資料並列印下列含研究生及指導教授簽章之文件：\n\n- **學位論文考試申請書**\n- **學位考試委員名冊**\n\n上述文件需提交系辦並完成研討室之預約。",
+          "generation_latency_ms": 5098.951091999879,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地涵蓋所有三項gold facts：(1)先完成英文抵免線上申請及論文原創性比對報告書上傳；(2)再至學生資訊系統輸入口試資料；(3)列印學位論文考試申請書及學位考試委員名冊。所有資訊皆與retrieved context（rank 1）內容完全一致，無錯誤或遺漏。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7094.488855000236
+        }
+      }
+    },
+    {
+      "id": "Q05",
+      "category": "paraphrase_procedure",
+      "query": "校外口試委員要開車進入校園，學生最晚何時、向哪個單位辦理什麼文件？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0004"
+        ]
+      ],
+      "gold_facts": [
+        "學生應於口試三天前填妥臺科大停車優惠券（免費）申請單。",
+        "申請單送交系辦提出申請，並於口試當日把停車優惠券交給口試委員。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 11.83552040741569
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0013",
+              "score": 3.8876494546009037
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 3.001741351403851
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 2.6187076148639603
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 2.6000916500222293
+            }
+          ],
+          "latency_ms": 0.8845840002322802,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，學生應於**口試三天前**，向**系辦（系辦公室）**填妥並送交**「臺科大停車優惠券（免費）申請單」**，再於口試當日將停車優惠券轉交予校外口試委員。",
+          "generation_latency_ms": 3808.4220350001488,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完全符合檢索內容與標準事實：時限（口試三天前）、單位（系辦）、文件（臺科大停車優惠券申請單）均正確，並額外補充了於口試當日轉交的動作（此亦與gold facts一致）。所有聲稱均可溯源，無遺漏或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7075.563532999695
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.6477969884872437,
+              "distance": 0.6477969884872437
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": -0.7162618637084961,
+              "distance": 0.7162618637084961
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.7220494151115417,
+              "distance": 0.7220494151115417
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -0.72648686170578,
+              "distance": 0.72648686170578
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.7280353307723999,
+              "distance": 0.7280353307723999
+            }
+          ],
+          "latency_ms": 18.206287999873894,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容：\n\n**校外口試委員要開車進入校園，學生應於口試三天前填妥「臺科大停車優惠卷（免費）申請單」後送交系辦提出申請，並於口試當日轉交停車優惠卷（免費）予口試委員。**",
+          "generation_latency_ms": 4207.3902180000005,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有必要事實：何時（口試三天前）、向哪個單位（系辦）、辦理什麼文件（臺科大停車優惠卷申請單），並補充說明口試當日需轉交口試委員。內容與 retrieved context 完全一致，忠实反映了文件規定。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 10896.373955999934
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.611321806569688
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 0.2581170624892968
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.2443574410269504
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 0.21865865907919774
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.2163625327852292
+            }
+          ],
+          "latency_ms": 0.04913299972031382,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容：\n\n**答案：**\n- **最晚時間**：口試**三天前**\n- **辦理單位**：系辦\n- **文件**：填妥「臺科大停車優惠券(免費)申請單」\n\n學生應於口試三天前填妥申請單後送交系辦提出申請，並於口試當日轉交停車優惠券予口試委員。",
+          "generation_latency_ms": 5483.132887000011,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整涵蓋所有必要事實：時間（三天前）、單位（系辦）、文件（臺科大停車優惠券免費申請單），且額外補充「口試當日轉交優惠券」之相關資訊亦與檢索內容一致，無矛盾之處。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 11177.389381000012
+        }
+      }
+    },
+    {
+      "id": "Q06",
+      "category": "multi_fact",
+      "query": "口試當天要從學生資訊系統列印哪些表件？審定書與評分表各要準備多少份？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0006"
+        ]
+      ],
+      "gold_facts": [
+        "須列印推薦書、審定書、考試評分表及學位論文學術倫理暨原創性比對聲明書。",
+        "審定書至少準備一份。",
+        "考試評分表份數應與口試委員人數相同。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 18.93676838387694
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 5.690143720157204
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 4.267363416580711
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 2.4744825076945265
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 2.0495041355657837
+            }
+          ],
+          "latency_ms": 0.8723010000721843,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，口試當天要從學生資訊系統列印的表件及準備份數如下：\n\n## 要列印的表件\n\n根據 chunk_id=114-2 資工系研究生畢業學位口試時程表-0006 的說明，口試當日必須從「學生資訊系統」列印以下表件：\n1. **推薦書**\n2. **審定書**\n3. **考試評分表**\n4. **學位論文學術倫理暨原創性比對聲明書**\n\n文件中特別強調：「推薦書、審定書、考試評分表均有條碼；依規定系辦不受理無條碼之表件」。\n\n## 審定書與評分表準備份數\n\n根據同一份文件的說明（第3點）：\n\n| 文件 | 準備份數 |\n|------|----------|\n| **審定書** | **至少一份** |\n| **考試評分表** | **與口試委員人數相同** |\n\n此外，口試當天應將考試評分表直接帶到口試會場交給指導教授，並自行準備原子筆供口試委員評比成績。",
+          "generation_latency_ms": 8765.1987309996,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有三個 gold facts：(1)正確列印四項表件（推薦書、審定書、考試評分表及學位論文學術倫理暨原創性比對聲明書），(2)審定書至少準備一份，(3)考試評分表與口試委員人數相同。所有內容皆可直接對應 retrieved context 的原文描述，無遺漏亦無矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 9456.694299999981
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.3767360746860504,
+              "distance": 0.3767360746860504
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.4619269073009491,
+              "distance": 0.4619269073009491
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.5150784254074097,
+              "distance": 0.5150784254074097
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": -0.5956337451934814,
+              "distance": 0.5956337451934814
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.6040116548538208,
+              "distance": 0.6040116548538208
+            }
+          ],
+          "latency_ms": 16.363512999760133,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n### 一、口試當天要從學生資訊系統列印的表件\n\n根據檢索內容，口試當天需自「學生資訊系統」列印以下表件：\n\n1. **推薦書**\n2. **審定書**\n3. **考試評分表**\n4. **學位論文學術倫理暨原創性比對聲明書**\n\n> ⚠️ 重要提醒：推薦書、審定書、考試評分表均有條碼，**依規定系辦不受理無條碼之表件**。\n\n---\n\n### 二、審定書與評分表的準備份數\n\n| 文件 | 準備份數 |\n|------|---------|\n| **審定書** | **至少一份** |\n| **考試評分表** | **與口試委員人數相同**（口試當天直接帶到口試會場交給指導教授） |\n\n此外，請自行準備**原子筆**供口試委員評比成績。",
+          "generation_latency_ms": 8713.701666999896,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有gold facts：①正確列舉四項需列印表件（推薦書、審定書、考試評分表、學位論文學術倫理暨原創性比對聲明書）；②正確說明審定書至少一份；③正確說明考試評分表份數與口試委員人數相同。所有資訊皆與retrieved context完全一致，無矛盾或無中生有之處。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7600.5931250001595
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 0.7739583549771405
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.44303635313124606
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.32773221833687777
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.32185804066199775
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 0.2948880693405803
+            }
+          ],
+          "latency_ms": 0.04711700012194342,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，口試當天要從學生資訊系統列印的表件包括：\n\n1. **推薦書**\n2. **審定書**\n3. **考試評分表**\n4. **學位論文學術倫理暨原創性比對聲明書**\n\n> 請注意：推薦書、審定書、考試評分表均有條碼，依規定系辦不受理無條碼之表件。\n\n---\n\n關於審定書與評分表的準備份數：\n\n- **審定書**：至少須準備**一份**\n- **考試評分表**：準備份數與**口試委員人數相同**\n\n口試當天請將這些表件直接帶到口試會場交給指導教授，並自行準備原子筆供口試委員評比成績。",
+          "generation_latency_ms": 5808.256950000214,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": [
+              "答案完整且正確地涵蓋所有必要事實：列印的四種表件（推薦書、審定書、考試評分表、學位論文學術倫理暨原創性比對聲明書），以及審定書至少一份、考試評分表與口試委員人數相同的份數要求。",
+              "所有資訊均可直接溯源至檢索內容（rank=1 chunk_id=114-2），無任何錯誤或額外猜測。"
+            ],
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 6115.255483000055
+        }
+      }
+    },
+    {
+      "id": "Q07",
+      "category": "exception_procedure",
+      "query": "經專簽核准採視訊口試時，評分表與審定書可以如何簽名及回傳？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0007"
+        ]
+      ],
+      "gold_facts": [
+        "評分表可繳交委員簽名後掃描的 email 版本。",
+        "審定書可用 email 逐一請委員簽名後掃描回傳，但所有委員須簽在同一張審定書上。",
+        "建議將委員回覆的簽名 email 與論文一起留存備查。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 10.553277939107062
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 4.863132611684313
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 3.6762451351623917
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 2.676434828956251
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 2.6719992852386913
+            }
+          ],
+          "latency_ms": 2.1279500001583074,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，經專簽核准採視訊方式辦理學位考試時，評分表與審定書的簽名及回傳方式如下：\n\n**學位考試評分表：**\n- 可以繳交委員**簽名掃描e-mail版本**\n\n**審定書：**\n- 可以採**e-mail方式逐一請委員簽名後掃描回傳**\n- **所有委員須簽在同一張審定書上**\n\n**建議事項：**\n- 因無實體簽名，建議學生將**委員回復簽名e-mail與論文一起留存備查**\n\n（資料來源：資工系研究生畢業學位口試時程表）",
+          "generation_latency_ms": 5956.720048000079,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有三項gold facts，且每項事實都能在retrieved context (rank 2, chunk_id 114-2)中找到直接對應的支持：評分表可繳交委員簽名掃描e-mail版本；審定書可用e-mail方式逐一請委員簽名後掃描回傳，所有委員須簽在同一張審定書上；建議學生將委員回覆的簽名email與論文一起留存備查。答案內容與上下文完全一致，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8723.387536000246
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.5143780708312988,
+              "distance": 0.5143780708312988
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.6009104251861572,
+              "distance": 0.6009104251861572
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.6302626132965088,
+              "distance": 0.6302626132965088
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.7099471092224121,
+              "distance": 0.7099471092224121
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": -0.7264889478683472,
+              "distance": 0.7264889478683472
+            }
+          ],
+          "latency_ms": 107.03727100008109,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，經專簽核准採視訊方式辦理學位口試時，評分表與審定書的簽名及回傳方式如下：\n\n## 學位考試評分表\n- 可以**繳交委員簽名掃描之e-mail版本**\n\n## 審定書\n- 可以採**e-mail方式逐一請委員簽名後掃描回傳**\n- **所有委員須簽在同一張審定書上**\n\n## 特別提醒\n- 因無實體簽名，建議學生**將委員回復簽名之e-mail與論文一起留存備查**，以備日後查核。",
+          "generation_latency_ms": 5671.886245999758,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有三項 gold facts：評分表可繳交委員簽名掃描 e-mail 版本、審定書可 email 逐一請委員簽名後掃描回傳且所有委員須簽在同一張審定書上、建議將委員回覆簽名 email 與論文一起留存備查。所有聲明皆可對應 retrieved context (chunk_id=114-2資工系研究生畢業學位口試時程表-0007) 中的內容，無矛盾或無來源之聲明。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 20345.239830000082
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 0.6394537445092765
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.4757000608628741
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.32311899455079324
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 0.295216198014841
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.2754764170329855
+            }
+          ],
+          "latency_ms": 0.05912500000704313,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "經專簽核准以視訊方式辦理學位口試時，評分表與審定書的簽名及回傳方式如下：\n\n1. **學位考試評分表**  \n   - 將評分表交由口試委員在紙本上簽名後，掃描成 PDF（或拍成圖檔），再以 **e‑mail** 寄給學生。  \n\n2. **審定書**  \n   - 透過 **e‑mail** 逐一請每位委員在**同一張**審定書上簽名。  \n   - 簽名完畢後，將該張審定書掃描，再以 e‑mail 回傳給學生。  \n\n3. **留存建議**  \n   - 因無實體簽名，學生應將委員回覆的簽名 e‑mail（連同論文）一起留存，以供日後查考。  \n\n如此即可在視訊口試的情況下完成評分表與審定書的簽署與繳交。",
+          "generation_latency_ms": 15931.991064000158,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地涵蓋了所有三項 gold facts：(1) 評分表可繳交委員簽名後掃描的 email 版本，(2) 審定書用 email 逐一請委員簽名後掃描回傳且所有委員須簽在同一張審定書上，(3) 建議將委員回覆的簽名 email 與論文一起留存備查。所有資訊皆與 retrieved context 完全吻合，faithfulness=1。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 6514.747081999758
+        }
+      }
+    },
+    {
+      "id": "Q08",
+      "category": "comparison",
+      "query": "博士生與碩士生離校時，系辦和圖書館各要繳交哪種版本的論文？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "114-2資工系研究生畢業學位口試時程表-0008",
+          "114-2資工系研究生畢業學位口試時程表-0009"
+        ]
+      ],
+      "gold_facts": [
+        "博士生與碩士生都要交一本黃色封面的平裝論文給系辦。",
+        "博士生要交一本紅色封面的精裝論文給圖書館。",
+        "碩士生要交一本黃色封面的平裝論文給圖書館。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 8.149446415469457
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0009",
+              "score": 4.146640147469349
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 3.7448271532593225
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 3.689719161594473
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": 3.4897246552641015
+            }
+          ],
+          "latency_ms": 1.2177920002613973,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，博士生與碩士生離校時繳交論文的版本如下：\n\n**系辦公室：**\n- 博士生：繳交一本**平裝本（黃色封面）**\n- 碩士生：繳交一本**平裝本（黃色封面）**\n\n**圖書館：**\n- 博士生：繳交一本**精裝本（紅色封面）**\n- 碩士生：繳交一本**平裝本（黃色封面）**\n\n資料來源：資工系研究生畢業學位口試時程表",
+          "generation_latency_ms": 4913.866691999829,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且正確地涵蓋所有必要事實，且每個事實都能在檢索內容中找到對應支持。檢索內容明確說明：博生及碩生繳交平裝本（黃色封面）至系辦公室；博生繳交精裝本（紅色封面）至圖書館、碩生繳交平裝本（黃色封面）至圖書館。答案與檢索內容完全一致，無矛盾或錯誤。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8993.490500999997
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0009",
+              "score": -0.5787596702575684,
+              "distance": 0.5787596702575684
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": -0.6251882314682007,
+              "distance": 0.6251882314682007
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": -0.6710748672485352,
+              "distance": 0.6710748672485352
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": -0.7289648056030273,
+              "distance": 0.7289648056030273
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.7479819059371948,
+              "distance": 0.7479819059371948
+            }
+          ],
+          "latency_ms": 15.394412000205193,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，博士生與碩士生離校時繳交論文的版本如下：\n\n**系辦：**\n- 博士生：繳交一本論文（**平裝本，黃色封面**）\n- 碩士生：繳交一本論文（**平裝本，黃色封面**）\n\n**圖書館：**\n- 博士生：繳交一本論文（**精裝本，紅色封面**）\n- 碩士生：繳交一本論文（**平裝本，黃色封面**）",
+          "generation_latency_ms": 4616.278386999966,
+          "judgement": {
+            "helpfulness": 1,
+            "faithfulness": 0,
+            "missing_facts": [
+              "博士生要繳交一本紅色封面的精裝論文給圖書館"
+            ],
+            "unsupported_claims": [],
+            "reason": "答案中圖書館部分僅提及碩士生繳交黃色平裝本給圖書館，但遺漏了博士生需繳交紅色精裝本給圖書館的關鍵資訊。雖然系辦部分正確，但圖書館繳交規定的說明不完整。",
+            "raw_faithfulness": 0,
+            "strict_pass": 0,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7063.394872000117
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0008",
+              "score": 0.6248870606282486
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0009",
+              "score": 0.45627410311656347
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0002",
+              "score": 0.35260986330083727
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.30524960568820747
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 0.2559985181178776
+            }
+          ],
+          "latency_ms": 0.08332499965035822,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 離校時論文繳交版本\n\n根據檢索內容，博士生與碩士生離校時繳交論文的版本規定如下：\n\n| 繳交單位 | 博士生 | 碩士生 |\n|---------|--------|--------|\n| **系辦公室** | 論文一本（**平裝本，黃色封面**） | 論文一本（**平裝本，黃色封面**） |\n| **圖書館** | 論文一本（**精裝本，紅色封面**） | 論文一本（**平裝本，黃色封面**） |\n\n**簡而言之：**\n- **系辦**：博士生和碩士生皆繳交平裝本（黃色封面）\n- **圖書館**：博士生繳交精裝本（紅色封面），碩士生繳交平裝本（黃色封面）",
+          "generation_latency_ms": 4710.295046000283,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且直接涵蓋所有必要事實。三項gold facts皆與檢索內容一致：系辦部分（博碩士皆繳交平裝黃色封面）與圖書館部分（博士生繳交精裝紅色封面、碩士生繳交平裝黃色封面）皆正確，且有表格對照呈現，清晰明確。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7862.766645999727
+        }
+      }
+    },
+    {
+      "id": "Q09",
+      "category": "numeric_scenario",
+      "query": "家庭年所得 130 萬元，學生加上兄弟姊妹或子女總共 2 名，是否可以申貸？利息如何負擔？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "就學貸款-0010",
+          "就學貸款-0011"
+        ]
+      ],
+      "gold_facts": [
+        "家庭年所得介於 120 萬元至 148 萬元且人數共 2 名時可以申貸。",
+        "此情況免息，但需檢附相關證明。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0010",
+              "score": 35.03649265017235
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": 28.51634900439266
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 8.932338922534093
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0013",
+              "score": 8.56645285109235
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 8.459443055313834
+            }
+          ],
+          "latency_ms": 1.350800000182062,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容，可以申貸且**免息**。\n\n### 對照條件：\n\n| 項目 | 您的情況 |\n|------|----------|\n| 家庭年所得 | 130 萬元（落在 120~148 萬區間） |\n| 學生加上兄弟姊妹或子女數 | 2 名 |\n\n### 依據：\n\n根據檢索內容「申貸資格及利息負擔」表格：\n\n| 家庭年所得 | 共 1 名 | 共 2 名 | 共 3 名 |\n|------------|---------|---------|---------|\n| **120~148 萬元** | 不可申貸 | **可申貸(免息)** | 可申貸(免息) |\n\n您的家庭年所得 130 萬元在 120~148 萬區間，且學生加上兄弟姊妹或子女共 2 名，符合「**可申貸(免息)**」的條件。\n\n### 所需檢附文件：\n\n依規定需檢附戶籍謄本：\n- 未成年「兄弟姊妹」和「子女」：戶籍謄本\n- 已成年「兄弟姊妹」和「子女」：戶籍謄本及在學證明",
+          "generation_latency_ms": 8150.646164999671,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且直接回答了問題：可以申貸、免息，並說明需檢附戶籍謄本等相關證明文件。所有資訊皆與檢索上下文一致且有來源依據。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 6966.510511999786
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.45584794878959656,
+              "distance": 0.45584794878959656
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.5860782861709595,
+              "distance": 0.5860782861709595
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.7458541989326477,
+              "distance": 0.7458541989326477
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.750679612159729,
+              "distance": 0.750679612159729
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.8367519974708557,
+              "distance": 0.8367519974708557
+            }
+          ],
+          "latency_ms": 21.995606000018597,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n根據檢索內容，**可以申貸，且為免息**。\n\n### 判斷依據：\n\n您的情況符合「條件2」的規定：\n\n| 項目 | 您的情形 |\n|------|---------|\n| 家庭年所得 | 130 萬元（落在 120~148 萬元的區間） |\n| 學生加上兄弟姊妹或子女數 | 共 2 名 |\n\n依據規定：\n> 「學生(未婚者)與父母或學生(已婚者)與配偶 113 年年所得合計數在 **120 萬元到 148 萬元**者，學生加上兄弟姊妹或子女共 **2 名(含)以上**：可申貸(**免息**)需檢附相關證明。」\n\n### 利息負擔：\n由政府補助利息，**免負擔利息**。\n\n### 須檢附的證明文件：\n- 未成年「兄弟姊妹」和「子女」：檢附**戶籍謄本**\n- 已成年「兄弟姊妹」和「子女」：檢附**戶籍謄本及在學證明**",
+          "generation_latency_ms": 8124.638032999883,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整正確地回應了問題。根據 retrieved_context，家庭年所得 130 萬元落在 120~148 萬元的區間，且人數共 2 名，符合「可申貸(免息)需檢附相關證明」的條件。回答清楚說明可以申貸、利息由政府補助（免息）、以及需檢附的證明文件（未成年兄弟姊妹/子女需戶籍謄本；已成年者需戶籍謄本及在學證明）。所有事實皆與 retrieved context 一致，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8153.777408000224
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.7264912306120754
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.5739147137204467
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.254465027413384
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.2473925797215482
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.18121529772563966
+            }
+          ],
+          "latency_ms": 0.056100999699992826,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n**可以申貸，且為免息。**\n\n根據檢索內容，台北富邦銀行就學貸款的申貸資格及利息負擔標準如下：\n\n| 家庭年所得 | 共 1 名 | 共 2 名 | 共 3 名 |\n|-----------|---------|---------|---------|\n| 120 萬元以下 | 可申貸(免息) | 可申貸(免息) | 可申貸(免息) |\n| **120~148 萬元** | 不可申貸 | **可申貸(免息)** | 可申貸(免息) |\n| 148 萬元以上 | 不可申貸 | 可申貸(利息自付) | 可申貸(免息) |\n\n您的情形：\n- **家庭年所得：130 萬元**（落在 120~148 萬元區間）\n- **學生加上兄弟姊妹或子女：共 2 名**\n\n對照表格，符合「120~148 萬元且共 2 名」的條件，**可申貸且由政府補助利息（免息）**。\n\n**提醒：** 需檢附相關證明文件，包括戶籍謄本（未成年兄弟姊妹/子女），或戶籍謄本及在學證明（已成年兄弟姊妹/子女）。",
+          "generation_latency_ms": 8102.990485999726,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且準確地回覆了問題的兩個核心面向：(1)可以申貸；(2)免息。回答中的所有聲明均與檢索內容完全一致，包括正確引用表格數據說明120~148萬元且共2名的條件為可申貸(免息)，以及提醒需檢附相關證明文件。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 9306.167143000039
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "category": "multi_chunk_procedure",
+      "query": "從富邦銀行線上申請到學務處繳件，四個步驟及各自期限是什麼？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "就學貸款-0011"
+        ],
+        [
+          "就學貸款-0012"
+        ]
+      ],
+      "gold_facts": [
+        "步驟一是在 115 年 2 月 4 日至 2 月 10 日註冊期間至富邦銀行網站線上申請。",
+        "步驟二是在 115 年 2 月 10 日前辦理銀行對保或線上對保。",
+        "步驟三是在 115 年 2 月 4 日至 2 月 10 日至學校就學貸款申請系統登記。",
+        "步驟四是在 115 年 2 月 23 日至 2 月 25 日向學務處繳件，或於 2 月 25 日前郵寄。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0012",
+              "score": 7.375327818813849
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": 7.03489604325652
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 5.60487788220551
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0013",
+              "score": 3.8729196716758354
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0010",
+              "score": 3.4880119437968147
+            }
+          ],
+          "latency_ms": 1.2480420000429149,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 2,
+            "total_groups": 2
+          },
+          "answer": "根據就學貸款申貸辦法，從富邦銀行線上申請到學務處繳件共四個步驟，及其期限如下：\n\n| 步驟 | 內容 | 期限 |\n|------|------|------|\n| 步驟 1 | 富邦銀行線上申請：同學在**註冊期間**（115/2/4‑115/2/10）上網列印繳費單後，至台北富邦銀行網站（https://school.taipeifubon.com.tw/）完成線上申請。 | 115 年 2 月 4 日至 115 年 2 月 10 日 |\n| 步驟 2 | 富邦銀行辦理對保或線上對保：於**115 年 2 月 10 日前**至台北富邦銀行指定分行辦理對保手續，或直接於線上完成簽約（免手續費）。 | 115 年 2 月 10 日前 |\n| 步驟 3 | 學校線上登記：在**115 年 2 月 4 日至 115 年 2 月 10 日**至本校「就學貸款申請」系統登錄資料（填寫內容須與對保資料相同）。 | 115 年 2 月 4 日至 115 年 2 月 10 日 |\n| 步驟 4 | 學務處繳件：於**115 年 2 月 23 日至 115 年 2 月 25 日**將「銀行撥款通知書學校存根聯」及相關文件繳至學務處；亦可於**115 年 2 月 25 日前**以郵寄方式寄至「台北市基隆路4段43號 學務處就學貸款收」。 | 115 年 2 月 23 日至 2 月 25 日（最遲 115 年 2 月 25 日） |\n\n**注意**：若未如期完成任一步驟，視同放棄，學校將催繳學雜費。",
+          "generation_latency_ms": 16744.727199999943,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且直接涵蓋所有四個步驟及期限：步驟1（115年2月4日至2月10日至富邦銀行線上申請）、步驟2（115年2月10日前辦理對保）、步驟3（115年2月4日至2月10日至學校系統登記）、步驟4（115年2月23日至2月25日向學務處繳件或2月25日前郵寄）。所有內容均可由retrieved_context驗證，無矛盾或錯誤。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 13514.18408599966
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.5160855650901794,
+              "distance": 0.5160855650901794
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.587198793888092,
+              "distance": 0.587198793888092
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.6110126972198486,
+              "distance": 0.6110126972198486
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.6585274934768677,
+              "distance": 0.6585274934768677
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.684016227722168,
+              "distance": 0.684016227722168
+            }
+          ],
+          "latency_ms": 16.27303799978108,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 2,
+            "total_groups": 2
+          },
+          "answer": "## 從富邦銀行線上申請到學務處繳件，四個步驟及各自期限如下：\n\n### 步驟1：富邦銀行線上申請\n- **期限**：115年2月4日至115年2月10日（註冊期間）\n- **內容**：同學於註冊期間上網列印繳費單後，再上台北富邦銀行網站（https://school.taipeifubon.com.tw/）進行線上申請。\n\n### 步驟2：富邦銀行辦理對保或線上對保\n- **期限**：115年2月10日前\n- **內容**：至台北富邦銀行指定分行辦理貸款對保手續，或選擇線上簽約（免手續費）。\n\n### 步驟3：學校線上登記\n- **期限**：115年2月4日至115年2月10日\n- **內容**：至本校「就學貸款申請」登錄系統填寫資料（填寫內容須與對保資料相同），網址為 https://studentloans.ntust.edu.tw/cht/index.php\n\n### 步驟4：學務處繳件\n- **期限**：115年2月23日至2月25日（或115年2月25日前郵寄至台北市基隆路4段43號學務處就學貸款收）\n- **繳交資料**：\n  1. 銀行撥款通知書學校存根聯（請於借款人處簽章）\n  2. 學雜費繳費單\n  3. 住宿保證金收據（無住校者免）\n  4. 另貸生活費證明文件\n\n> **注意**：若有困難請個別電洽 2737-6317，若未如期繳回者，視同放棄，將催繳學雜費。",
+          "generation_latency_ms": 8964.49880199998,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案的四個步驟及其期限與gold facts完全一致，且每項內容均可由retrieved context驗證：步驟1（115/2/4-2/10富邦銀行線上申請）、步驟2（115/2/10前對保）、步驟3（115/2/4-2/10學校系統登記）、步驟4（115/2/23-2/25繳件或2/25前郵寄）皆與context相符，無任何遺漏或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 11346.180760999687
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.6903486604035436
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.629217447541176
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.5088633682560953
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.4225642815350982
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.3996375866352409
+            }
+          ],
+          "latency_ms": 0.10092499996972037,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 2,
+            "total_groups": 2
+          },
+          "answer": "## 四個步驟及各自期限\n\n根據檢索內容，就學貸款須完成以下四個步驟：\n\n| 步驟 | 內容 | 期限 |\n|------|------|------|\n| **步驟1** | 富邦銀行線上申請 | 115年2月4日至2月10日（註冊期間）上網列印繳費單後，再上台北富邦銀行網站（https://school.taipeifubon.com.tw/）進行線上申請 |\n| **步驟2** | 富邦銀行辦理對保或線上對保 | **115年2月10日前**至台北富邦銀行指定分行辦理貸款對保手續，或選擇線上簽約（免手續費） |\n| **步驟3** | 學校線上登記 | 115年2月4日至2月10日至本校〔就學貸款申請〕登錄（填寫內容須與對保資料相同） |\n| **步驟4** | 學務處繳件 | 115年2月23日至2月25日，或於**115年2月25日前**郵寄至「台北市基隆路4段43號學務處就學貸款收」 |\n\n> ⚠️ 注意：未如期繳回者，視同放棄，將催繳學雜費。如有困難請電洽 2737-6317。",
+          "generation_latency_ms": 7136.302708999665,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "answer 完全涵蓋所有 gold facts，包括四個步驟各自的期限：步驟一（2/4-2/10線上申請）、步驟二（2/10前對保）、步驟三（2/4-2/10學校系統登記）、步驟四（2/23-2/25繳件或2/25前郵寄）。所有資訊均可由 retrieved context 驗證，無矛盾或錯誤。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 4397.482551999929
+        }
+      }
+    },
+    {
+      "id": "Q11",
+      "category": "documents_and_consequence",
+      "query": "向學務處繳交就學貸款資料時要交哪些文件？沒有按時繳回會有什麼後果？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "就學貸款-0012",
+          "就學貸款-0013"
+        ]
+      ],
+      "gold_facts": [
+        "須繳交銀行撥款通知書學校存根聯，並在借款人處簽章。",
+        "須繳交學雜費繳費單。",
+        "住宿者須繳交住宿保證金收據，無住校者免交。",
+        "另貸生活費者須繳交證明文件。",
+        "未如期繳回視同放棄，學校將催繳學雜費。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 5.456966357292883
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0013",
+              "score": 4.190610424580979
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0012",
+              "score": 2.737473952930691
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 2.6500244665663355
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 2.1550603530376566
+            }
+          ],
+          "latency_ms": 1.6687920001459133,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 向學務處繳交就學貸款資料應繳交的文件\n\n根據檢索內容，向學務處繳交就學貸款資料時需繳交以下文件：\n\n1. **銀行撥款通知書學校存根聯**（請於借款人處簽章）\n2. **學雜費繳費單**\n3. **住宿保證金收據**（無住校者免）\n4. **另貸生活費證明文件**\n\n---\n\n## 未按時繳回的後果\n\n根據文件規定：\n\n> 若未如期繳回者，**視同放棄**，將**催繳學雜費**。\n\n因此，學生應於規定期限（115年2月23日至2月25日）內完成繳件，如有困難可致電 2737-6317 個別洽詢。",
+          "generation_latency_ms": 6485.8925170001385,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整涵蓋所有五項必要事實，包括四項需繳交文件及按時繳回的重要性。答案格式清晰，並依據檢索內容正確引用'視同放棄'及'催繳學雜費'等關鍵後果。所有聲稱均可於retrieved context中找到對應支持，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8787.762120000025
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.5103039145469666,
+              "distance": 0.5103039145469666
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.5258305668830872,
+              "distance": 0.5258305668830872
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.530082106590271,
+              "distance": 0.530082106590271
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.6130643486976624,
+              "distance": 0.6130643486976624
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.6999145150184631,
+              "distance": 0.6999145150184631
+            }
+          ],
+          "latency_ms": 17.080346000057034,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 回答\n\n### 一、向學務處繳交就學貸款的資料\n\n根據檢索內容，需繳交以下4項文件：\n\n1. **銀行撥款通知書學校存根聯**（請於借款人處簽章）\n2. **學雜費繳費單**\n3. **住宿保證金收據**（無住校者免）\n4. **另貸生活費證明文件**\n\n繳交時間為 **115年2月23日至2月25日**，或於期限前郵寄至「台北市基隆路4段43號學務處就學貸款收」。如有任何困難可電洽 **2737-6317**。\n\n---\n\n### 二、沒有按時繳回的後果\n\n根據檢索內容明確指出：\n\n> **若未如期繳回者，視同放棄，將催繳學雜費。**\n\n也就是說，未按時繳交資料的同學，將被視為放棄就學貸款，學校會向學生催繳學雜費。",
+          "generation_latency_ms": 5475.022675999753,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且準確地涵蓋所有五項gold facts。所需繳交的四項文件（銀行撥款通知書學校存根聯、學雜費繳費單、住宿保證金收據、另貸生活費證明文件）皆與檢索內容及gold facts一致，借款人簽章要求亦有明確說明。逾期繳回的後果（視同放棄、催繳學雜費）亦與gold facts完全吻合，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 7485.4708519997075
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.6819507353128293
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.6009927476548953
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.4328204213620664
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.4231019458135065
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.33243002747208283
+            }
+          ],
+          "latency_ms": 0.05710899995392538,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.5,
+            "first_relevant_rank": 2,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 向學務處繳交就學貸款資料所需文件\n\n根據檢索內容，向學務處繳交就學貸款資料時，**應繳交以下文件**：\n\n1. **銀行撥款通知書學校存根聯**（請於借款人處簽章）\n2. **學雜費繳費單**\n3. **住宿保證金收據**（無住校者免）\n4. **另貸生活費證明文件**\n\n---\n\n## 沒有按時繳回的後果\n\n根據檢索內容：\n\n> 「如有困難請個別電洽 2737-6317，若未如期繳回者，**視同放棄，將催繳學雜費**。」\n\n因此，若未按時繳回就學貸款相關文件，將產生以下後果：\n- **視同放棄本次就學貸款申請**\n- 學校將**催繳學雜費**，學生須自行負擔學雜費款項",
+          "generation_latency_ms": 5547.91502199987,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且直接涵蓋所有五項必要事實：(1)銀行撥款通知書學校存根聯(借款人處簽章) (2)學雜費繳費單 (3)住宿保證金收據(無住校者免) (4)另貸生活費證明文件 (5)未如期繳回的後果：視同放棄、催繳學雜費。所有資訊均與檢索內容一致，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 6912.482256000203
+        }
+      }
+    },
+    {
+      "id": "Q12",
+      "category": "conditional_amounts",
+      "query": "校外住宿費、書籍費與生活費分別能否申貸？金額上限或證明要求是什麼？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "就學貸款-0013"
+        ]
+      ],
+      "gold_facts": [
+        "校外住宿生需有租屋契約或租屋證明，可依需求申貸 27,500 元。",
+        "書籍費未列入繳費單，可依需求申貸 3,000 元。",
+        "生活費限低收入戶或中低收入戶，銀行對保及繳件時均須附縣市政府核發的證明。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0013",
+              "score": 16.962923814834465
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0014",
+              "score": 5.202957288872108
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0010",
+              "score": 4.603647380410038
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0012",
+              "score": 3.436650889338854
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0011",
+              "score": 2.8872792238036524
+            }
+          ],
+          "latency_ms": 1.2210919999233738,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 校外住宿費、書籍費與生活費的申貸規定\n\n根據檢索內容，說明如下：\n\n---\n\n### 一、校外住宿費（住宿費）\n\n**能否申貸：可以**\n\n**金額上限與條件：**\n- 校外住宿生（需有**租屋契約或租屋證明**）可依本身需求自由申貸 **27,500 元**\n- 住校生則須依繳費單校內住宿費金額申貸\n\n---\n\n### 二、書籍費\n\n**能否申貸：可以**\n\n**金額上限：3,000 元**\n\n**說明：** 書籍費未列入繳費單內，可依本身需求自由申貸。\n\n---\n\n### 三、生活費\n\n**能否申貸：可以**\n\n**金額上限：** 檢索內容中**未明確記載金額上限**\n\n**證明要求：**\n- **低收入戶、中低收入戶**：銀行對保時及繳件時均需檢附**縣市政府社會局（處）核發之證明文件**\n- 其他一般身分者：未見特別證明文件要求\n\n---\n\n### 不可申貸項目提醒\n\n**住宿保證金**為不可申貸項目，須另行繳費。\n\n---\n\n> **摘要對照表：**\n\n| 項目 | 能否申貸 | 金額上限 | 證明要求 |\n|------|----------|----------|----------|\n| 校外住宿費 | ✓ | 27,500元 | 租屋契約或租屋證明 |\n| 書籍費 | ✓ | 3,000元 | 無特別要求 |\n| 生活費 | ✓ | 未載明 | 低收入戶/中低收入戶需附縣市政府核發證明 |",
+          "generation_latency_ms": 8701.691587999903,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且正確地涵蓋三個申貸項目：（1）校外住宿費需租屋契約可申貸27,500元；（2）書籍費未列入繳費單可申貸3,000元；（3）生活費僅限低收入戶或中低收入戶，需附縣市政府核發證明，並如實說明金額上限未明確記載。所有事實均與檢索內容一致，無矛盾或臆測。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 13220.395091000228
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.5624126195907593,
+              "distance": 0.5624126195907593
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.5972145795822144,
+              "distance": 0.5972145795822144
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.6311752200126648,
+              "distance": 0.6311752200126648
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.7002815008163452,
+              "distance": 0.7002815008163452
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.7375539541244507,
+              "distance": 0.7375539541244507
+            }
+          ],
+          "latency_ms": 18.218754999907105,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 校外住宿費、書籍費與生活費之申貸說明\n\n根據檢索文件內容，逐一說明如下：\n\n---\n\n### 一、校外住宿費\n\n**可以申貸。**\n\n- **金額上限**：校外住宿生可依本身需求自由申貸 **27,500 元**\n- **證明要求**：需檢附**租屋契約或租屋證明**\n\n> 相較之下，住校生則須依繳費單上的校內住宿費金額申貸。\n\n---\n\n### 二、書籍費\n\n**可以申貸。**\n\n- **金額上限**：未列入繳費單內，可依本身需求自由申貸 **3,000 元**\n- **證明要求**：文件中未特別要求證明文件\n\n---\n\n### 三、生活費\n\n**可以申貸（但有特定證明要求）。**\n\n- **證明要求**：\n  - **低收入戶、中低收入戶**：銀行對保時及繳件時均需檢附**縣市政府社會局核發之證明文件**\n  - 一般學生：文件中未明確要求額外證明文件\n\n---\n\n### 補充提醒\n\n根據文件規定：\n- **不可貸款項目**：住宿保證金（需另行繳費，不在就學貸款範圍內）\n- 以上生活費、書籍費等均屬可申貸項目（學雜費、學分費、住宿費、學生平安保險費、網路使用費、書籍費及生活費）",
+          "generation_latency_ms": 8910.702554000181,
+          "judgement": {
+            "helpfulness": 1,
+            "faithfulness": 0,
+            "missing_facts": [
+              "生活費僅限低收入戶或中低收入戶申請（一般學生不可申請生活費貸款）"
+            ],
+            "unsupported_claims": [
+              "答案暗示「一般學生」也可申貸生活費，與gold facts「生活費限低收入戶或中低收入戶」相矛盾，retrieved context中並無支持一般學生可申貸生活費的依據"
+            ],
+            "reason": "答案前三項（校外住宿費、書籍費）內容與gold facts及retrieved context一致，金額上限（27,500元及3,000元）及證明要求（租屋契約）均正確。然而生活費部分，答案錯誤地將申請資格擴大為「低收入戶、中低收入戶」及「一般學生」兩類，暗示一般學生也可申請生活費貸款。根據gold facts及retrieved context明確記載「生活費：低收入戶、中低收入戶，銀行對保時及繳件時均需檢附縣市政府社會核發之證明文件」，生活費貸款的適用對象僅限低收入戶或中低收入戶，一般學生並不在可申請範圍內。此為關鍵性事實錯誤，屬於contradiction（矛盾），因此faithfulness為0。",
+            "raw_faithfulness": 0,
+            "strict_pass": 0,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 30212.469091000003
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.662552428009736
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.3643613578621757
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.32985274228221184
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.24791557017383042
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.23850674377267006
+            }
+          ],
+          "latency_ms": 0.047849999646132346,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "**根據「就學貸款」相關說明（chunk 0013），以下三項的申貸情況、金額上限及證明要求如下：**\n\n| 項目 | 能否申貸 | 金額上限 | 必須提供的證明文件 |\n|------|----------|----------|--------------------|\n| **校外住宿費** | ✅ 可以 | **27,500 元**（每學期） | 需檢附「租屋契約」或「租屋證明」<br>（住校生則依校內住宿費金額申貸） |\n| **書籍費** | ✅ 可以 | **3,000 元**（每學期） | 本身即為可申貸項目，無需特別證明文件（仍須配合一般就學貸款的對保、繳件程序） |\n| **生活費** | ✅ 可以（但僅限特定族群） | **未載明具體上限**，依借款人需求與銀行核定 | 必須為「低收入戶」或「中低收入戶」，並於銀行對保及繳件時檢附**縣市政府社會福利單位核發的證明文件**（如低收入戶證明、中低收入戶證明） |\n\n### 重要提醒\n- **住宿保證金** 為「不可申貸項目」，需自行以現金或其他方式繳納。\n- 生活費的申貸資格僅限政府核定的低收入戶或中低收入戶，一般所得學生無法申請生活費項目。\n\n以上資訊全部取自於檢索文件，若有其他疑問建議直接聯繫學務處就學貸款承辦窗口（電話 2737‑6317）。",
+          "generation_latency_ms": 17535.380280000027,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答完整且精確地涵蓋三個項目各自的申貸可行性、金額上限與證明要求。校外住宿費：需租屋契約或租屋證明，可貸27,500元；書籍費：未列入繳費單，可貸3,000元；生活費：限低收入戶或中低收入戶，須附縣市政府核發之證明文件——以上均與檢索文件（chunk 0013）及gold facts完全一致，無錯誤或遺漏。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 8521.767015000023
+        }
+      }
+    },
+    {
+      "id": "Q13",
+      "category": "comparison_procedure",
+      "query": "曾經辦過富邦就學貸款的學生與第一次申請者，在文件、保證人到場及線上對保方面有什麼差異？",
+      "answerable": true,
+      "evidence_groups": [
+        [
+          "就學貸款-0014"
+        ]
+      ],
+      "gold_facts": [
+        "曾申貸者可使用上學期富邦就學貸款撥款通知書學生收執聯及本學期學雜費繳費單。",
+        "曾申貸者由學生本人攜帶學生證、身分證及印章，保證人不用陪同，且可線上對保或續貸。",
+        "新申請者需準備學雜費繳費單、學生證（新生免附）、身分證、印章及包含學生與保證人的戶籍謄本。",
+        "新申請者的保證人須親自到場；未滿二十歲由父母雙方擔任，已滿二十歲可由父母一人或另覓有工作證明的成年人一人擔任。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 11.772153782160064
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0012",
+              "score": 6.955515318721993
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0011",
+              "score": 6.451899275532374
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 6.373729349958145
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": 6.263207329935032
+            }
+          ],
+          "latency_ms": 2.5438420002501516,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 差異比較\n\n根據檢索內容，曾辦理台北富邦銀行就學貸款同學與新申請同學的差異如下：\n\n### 一、文件準備方面\n\n| 項目 | 曾辦理同學 | 新申請同學 |\n|------|-----------|-----------|\n| 台北富邦銀行就學貸款撥款通知書（學生收執聯） | ✓ 需繳交 | ✗ 不需繳交 |\n| 學雜費繳費單 | ✓ 需繳交 | ✓ 需繳交 |\n| 學生證、身份證、印章 | ✓ 需攜帶（新生免附學生證） | ✓ 需攜帶 |\n| **戶籍謄本** | ✗ 不需 | **✓ 需繳交一份**（含學生及保證人，若不同戶者各自申請） |\n\n### 二、保證人到場方面\n\n| 項目 | 曾辦理同學 | 新申請同學 |\n|------|-----------|-----------|\n| 保證人陪同 | **不用陪同辦理** | **須親自到場** |\n\n新申請同學的保證人須攜帶身份證及印章。若申貸學生未滿二十歲者，由父母雙方共同擔任保證人；已滿二十歲者，父母其中一人或另覓有工作證明之成年人一人即可。\n\n### 三、線上對保方面\n\n| 項目 | 曾辦理同學 | 新申請同學 |\n|------|-----------|-----------|\n| 線上對保或線上續貸 | **可辦理** | **僅說明可至分行對保或線上簽約** |\n\n由上表可知，**曾辦理同學最大差異**在於：不需保證人到場、可辦理線上對保或線上續貸，且不需繳交戶籍謄本。",
+          "generation_latency_ms": 8322.25372799985,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地比較了曾辦理者與新申請者在文件、保證人到場及線上對保三方面的差異。表格形式清晰對比：曾辦理者需上學期撥款通知書收執聯、新申請者需戶籍謄本；曾辦理者保證人不用陪同、可線上對保或續貸；新申請者保證人須親自到場並說明年齡條件。對照檢索內容，核心事實完全吻合，無矛盾或錯誤。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 36951.67636700034
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.6160234212875366,
+              "distance": 0.6160234212875366
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.630856990814209,
+              "distance": 0.630856990814209
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.6358457207679749,
+              "distance": 0.6358457207679749
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.6565513014793396,
+              "distance": 0.6565513014793396
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.707474946975708,
+              "distance": 0.707474946975708
+            }
+          ],
+          "latency_ms": 27.796824999768432,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 0.3333333333333333,
+            "first_relevant_rank": 3,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "根據檢索內容，**曾辦理過台北富邦銀行就學貸款的學生**與**第一次申請者**在本校同一教育階段的差異如下：\n\n---\n\n## 一、所需文件\n\n| 項目 | 曾辦理過的學生（新申請者） | 第一次申請者 |\n|------|----------------------------|--------------|\n| **銀行撥款通知書** | 上學期台北富邦銀行就學貸款撥款通知書（學生收執聯） | **不需檢附** |\n| **學雜費繳費單** | ✅（除住宿保證金外，其餘項目均可申貸） | ✅（除住宿保證金外，其餘項目均可申貸） |\n| **學生證** | ✅（新生免附） | ✅ |\n| **身份證** | ✅ | ✅ |\n| **印章** | ✅ | ✅ |\n| **戶籍謄本** | **不需檢附** | ✅（一份，含學生及保證人；若不同戶者各自申請） |\n| **保證人相關文件** | **不需** | ✅（需保證人到場並攜帶身份證、印章） |\n\n---\n\n## 二、保證人到場規定\n\n| 項目 | 曾辦理過的學生 | 第一次申請者 |\n|------|----------------|--------------|\n| **保證人是否須親自到場** | **不用陪同辦理** | **須親自到場**，並攜帶身份證、印章 |\n| **未成年學生（未滿20歲）** | 不需保證人到場 | 父母**雙方共同**擔任保證人 |\n| **已成年學生（滿20歲）** | 不需保證人到場 | 父母其中一人，或另覓有工作證明之成年人一人即可 |\n\n---\n\n## 三、線上對保\n\n| 項目 | 曾辦理過的學生 | 第一次申請者 |\n|------|----------------|--------------|\n| **線上對保或線上續貸** | ✅ **可辦理線上對保或線上續貸** | ❌ **需親自至台北富邦銀行指定分行**辦理對保手續 |\n\n---\n\n### 總結\n- **文件方面**：曾辦理者需攜帶上學期撥款通知書，但不需戶籍謄本；第一次申請者則需繳交戶籍謄本及保證人資料。\n- **保證人方面**：曾辦理者**不需保證人到場**；第一次申請者**保證人須親自到場**，未成年者需父母雙方同意。\n- **線上對保**：曾辦理者可使用**線上對保或續貸**；第一次申請者須親至銀行辦理對保。\n\n以上差異均依據檢索內容「就學貸款-0014」整理。",
+          "generation_latency_ms": 16032.267549000153,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整且準確地回答了三個面向的差異：文件方面，曾申貸者使用上學期撥款通知書及學雜費繳費單，無需戶籍謄本；新申請者需準備戶籍謄本及保證人資料。保證人到場方面，曾申貸者不需保證人到場；新申請者須親自到場，未滿20歲需父母雙方，已滿20歲可由父母一人或另覓成年人。線上對保方面，曾申貸者可辦理線上對保或續貸；新申請者需親至銀行辦理。所有資訊皆與檢索內容（就學貸款-0014）一致，無矛盾或遺漏。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 56925.965845000064
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.6184925671994301
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.4578237073609791
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.44961173681337907
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.4226389127296467
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.3883293541726863
+            }
+          ],
+          "latency_ms": 0.0905669999156089,
+          "metrics": {
+            "recall_at_5": 1.0,
+            "reciprocal_rank": 1.0,
+            "first_relevant_rank": 1,
+            "context_sufficient_at_5": 1,
+            "covered_groups": 1,
+            "total_groups": 1
+          },
+          "answer": "## 曾辦理台北富邦銀行就學貸款者與新申請同學之差異\n\n根據檢索內容，兩者在以下項目有明顯差異：\n\n### 一、必備文件\n\n| 項目 | 曾辦理者 | 新申請者 |\n|------|----------|----------|\n| 撥款通知書 | **需要**：上學期台北富邦銀行就學貸款撥款通知書（學生收執聯） | 不需要 |\n| 學雜費繳費單 | 需要 | 需要 |\n| 學生證 | 需要 | 需要（新生免附） |\n| 身份證、印章 | 需要 | 需要 |\n| 戶籍謄本 | **不需要** | **需要**：一份（含學生及保證人），若不同戶者各自申請 |\n\n### 二、保證人到場\n\n| 項目 | 曾辦理者 | 新申請者 |\n|------|----------|----------|\n| 保證人 | **不用陪同辦理** | **須親自到場**，並帶身份證、印章 |\n| 資格說明 | 無 | - 未滿20歲：父母雙方共同擔任<br>- 已滿20歲：父母其中一人，或另覓有工作證明之成年人一人 |\n\n### 三、線上對保\n\n| 項目 | 曾辦理者 | 新申請者 |\n|------|----------|----------|\n| 線上對保 | **可辦理線上對保或線上續貸** | 僅說明可至分行對保或線上簽約 |\n\n---\n\n**簡而言之**：曾辦理過的同學較為便利，無需攜帶戶籍謄本、保證人也不用到場，且可使用線上對保或線上續貸；新申請者則須備齊戶籍謄本，且未滿20歲者需父母雙方到場、已滿20歲者至少需一人到場。",
+          "generation_latency_ms": 11333.822531999886,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整涵蓋所有gold facts，包括曾申貸者使用上學期撥款通知書、保證人無需到場、可線上對保；新申請者需戶籍謄本、保證人須到場及年齡條件等。所有內容均可由retrieved context直接支持，無錯誤或矛盾。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 10129.33238200003
+        }
+      }
+    },
+    {
+      "id": "Q14",
+      "category": "unanswerable",
+      "query": "就學貸款可以用來購買筆電嗎？最高可以貸多少錢？",
+      "answerable": false,
+      "evidence_groups": [],
+      "gold_facts": [
+        "現有文件沒有說明筆電是否可申貸或其額度，應明確表示無法由文件確認。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 4.416404660466691
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0012",
+              "score": 3.251260196663628
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0013",
+              "score": 1.3576270426922026
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.8120673396953177
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.0
+            }
+          ],
+          "latency_ms": 1.051233999987744,
+          "metrics": null,
+          "answer": "## 回答\n\n根據檢索內容，就學貸款的**可申貸項目**為：\n\n> 學雜費、學分費、住宿費、學生平安保險費、網路使用費、**書籍費**及生活費\n\n### 關於筆電\n文件中**未明確提及「筆電」**是否可以購買。筆電可能涉及「書籍費」的範疇，但文件中對此並無說明，無法確認。\n\n### 可自由申貸的金額上限\n| 項目 | 可自由申貸金額 |\n|------|----------------|\n| 書籍費 | 3,000 元 |\n| 校外住宿費 | 27,500 元 |\n\n### 結論\n文件中未提供筆電是否可使用就學貸款購買的資訊，也未說明書籍費的具體適用範圍。建議直接洽詢學校學務處或台北富邦銀行確認。",
+          "generation_latency_ms": 11145.141130999946,
+          "judgement": {
+            "helpfulness": 1,
+            "faithfulness": 0,
+            "missing_facts": [],
+            "unsupported_claims": [
+              "筆電可能涉及「書籍費」的範疇"
+            ],
+            "reason": "答案基本承認文件中未明確提及筆電可申貸，並建議洽詢確認，這符合answerable=false時的要求，/helpfulness可給1分。然而答案中「筆電可能涉及『書籍費』的範疇」此推論並無文件來源依據，屬猜測性連結，/faithfulness應為0。",
+            "raw_faithfulness": 0,
+            "strict_pass": 0,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 15798.434069999985
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0010",
+              "score": -0.6807347536087036,
+              "distance": 0.6807347536087036
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0013",
+              "score": -0.6946256160736084,
+              "distance": 0.6946256160736084
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0014",
+              "score": -0.727795422077179,
+              "distance": 0.727795422077179
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0012",
+              "score": -0.7486017942428589,
+              "distance": 0.7486017942428589
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0011",
+              "score": -0.7652804851531982,
+              "distance": 0.7652804851531982
+            }
+          ],
+          "latency_ms": 22.621964999871125,
+          "metrics": null,
+          "answer": "## 回答\n\n根據檢索內容，就學貸款的**可申貸項目**包括：\n- 學雜費、學分費\n- 住宿費\n- 學生平安保險費\n- 網路使用費\n- **書籍費**（未列入繳費單內，可依本身需求自由申貸 **3,000 元**）\n- 生活費\n\n### 關於購買筆電\n\n文件中**未明確提及筆電**是否可購買。筆電通常可能被歸類為「書籍費」項目，但文件僅說明書籍費最高可貸 **3,000 元**，此金額是否足以購買筆電，文件中未提供相關說明或確認。\n\n### 關於最高可貸金額\n\n檢索內容中**未說明總貸款金額上限**，僅列出各項目的參考額度：\n- 書籍費：3,000 元\n- 校外住宿費：27,500 元\n- 生活費：（依資格而定，需檢附證明文件）\n\n### 結論\n\n根據所提供之檢索內容，**無法確認筆電是否可使用就學貸款購買，亦無法得知總貸款最高額度**。建議直接洽詢學校學務處或銀行確認詳細規定。",
+          "generation_latency_ms": 10376.56157399988,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案完整說明文件中有關可申貸項目的內容，並明確指出文件中未提及筆電亦未說明總額度上限，完全符合gold facts中「應明確表示無法由文件確認」的指引，且未作任何猜測。答案內容皆可由retrieved context逐一對應驗證，無錯誤或矛盾。",
+            "raw_faithfulness": 2,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 30296.72517200015
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "就學貸款-0014",
+              "score": 0.5633227458479786
+            },
+            {
+              "rank": 2,
+              "chunk_id": "就學貸款-0012",
+              "score": 0.4453101451161402
+            },
+            {
+              "rank": 3,
+              "chunk_id": "就學貸款-0013",
+              "score": 0.30618682643998496
+            },
+            {
+              "rank": 4,
+              "chunk_id": "就學貸款-0011",
+              "score": 0.21438179322220755
+            },
+            {
+              "rank": 5,
+              "chunk_id": "就學貸款-0010",
+              "score": 0.19155914783477782
+            }
+          ],
+          "latency_ms": 0.0770000001466542,
+          "metrics": null,
+          "answer": "根據檢索內容，就學貸款的**可申貸項目**包括：\n- 學雜費、學分費\n- 住宿費\n- 學生平安保險費\n- 網路使用費\n- 書籍費\n- 生活費\n\n**筆電不在可申貸項目中**，因此無法使用就學貸款購買筆電。\n\n---\n\n**各項目可申貸金額：**\n\n| 項目 | 可貸金額 |\n|------|----------|\n| 書籍費 | 3,000 元（未列入繳費單，可自由申貸） |\n| 校外住宿費 | 27,500 元（需有租屋契約或證明） |\n| 生活費 | 需具低收入戶或中低收入戶身份，並檢附縣市政府社會局核發證明 |\n\n---\n\n**結論：** 文件中未將筆電列為可申貸項目，故**無法確認**就學貸款可用於購買筆電。若筆電作為學習所需設備，相關費用可能需自費或其他獎補助管道支應。",
+          "generation_latency_ms": 10387.337085000127,
+          "judgement": {
+            "helpfulness": 1,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案所列之可申貸項目（學雜費、住宿費、書籍費、生活費等）及金額（書籍費3,000元、校外住宿費27,500元）皆與檢索內容一致。答案推論筆電不在可申貸項目中，並於結論處明確承認「文件中未將筆電列為可申貸項目，故無法確認就學貸款可用於購買筆電」，符合 answerable=false 的處理方式，faithfulness 為 1。helpfulness 為 1 是因為答案雖未直接回答筆電問題，但提供了部分事實且正確承認文件不足。",
+            "raw_faithfulness": 1,
+            "strict_pass": 0,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 17287.521521000144
+        }
+      }
+    },
+    {
+      "id": "Q15",
+      "category": "unanswerable",
+      "query": "因颱風停班停課而必須延後口試時，要如何申請改期？",
+      "answerable": false,
+      "evidence_groups": [],
+      "gold_facts": [
+        "現有文件沒有說明颱風造成口試延期的申請程序，應明確表示無法由文件確認。"
+      ],
+      "retrievals": {
+        "bm25": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 3.1354398313069276
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 1.6254303003407844
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 1.5461524367893569
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 1.5083141502556499
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0005",
+              "score": 1.3747846522640659
+            }
+          ],
+          "latency_ms": 1.229800000146497,
+          "metrics": null,
+          "answer": "**文件未提供此資訊。**\n\n檢索內容中並未包含因颱風停班停課而須延後口試的申請方式說明。建議您直接洽詢資工系辦或教務處確認具體程序。",
+          "generation_latency_ms": 8432.165665999946,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案明確指出文件未提供颱風延期口試的相關資訊，並建議直接洽詢系辦或教務處，符合answerable=false時的處理方式。檢索內容中確實沒有任何關於颱風停班停課導致口試延期的程序說明，答案陳述與檢索內容一致，無虛構或矛盾之處。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 24577.09029600028
+        },
+        "vector": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": -0.7057540416717529,
+              "distance": 0.7057540416717529
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": -0.7286888957023621,
+              "distance": 0.7286888957023621
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": -0.7782915830612183,
+              "distance": 0.7782915830612183
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": -0.7978403568267822,
+              "distance": 0.7978403568267822
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": -0.8106685876846313,
+              "distance": 0.8106685876846313
+            }
+          ],
+          "latency_ms": 15.871537999828433,
+          "metrics": null,
+          "answer": "根據檢索內容，**文件中未提供因颱風停班停課而必須延後口試時的申請改期方式**。\n\n檢索的「資工系研究生畢業學位口試時程表」內容包含：\n- 口試舉行期間\n- 申請方式與前置作業\n- 口試前準備事項\n- 口試當日流程\n- 口試後離校手續\n\n但**未提及**因天災（如颱風）停班停課導致口試需改期時的申請程序或相關規定。如有此需求，建議直接洽詢資工系辦公室確認。",
+          "generation_latency_ms": 7797.945002999768,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "答案明確承認文件不足：「文件中未提供因颱風停班停課而必須延後口試時的申請改期方式」，與檢索內容完全一致（口試時程表未提及任何颱風或天災造成口試延期的程序）。答案未進行猜測或捏造程序，並建議直接洽詢系辦，符合answerable=false時的正確回應方式。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 22370.853526000246
+        },
+        "hybrid": {
+          "ranked": [
+            {
+              "rank": 1,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0007",
+              "score": 0.5212957846281926
+            },
+            {
+              "rank": 2,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0001",
+              "score": 0.37379612895356096
+            },
+            {
+              "rank": 3,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0004",
+              "score": 0.3552080422376418
+            },
+            {
+              "rank": 4,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0003",
+              "score": 0.3209611802813446
+            },
+            {
+              "rank": 5,
+              "chunk_id": "114-2資工系研究生畢業學位口試時程表-0006",
+              "score": 0.29483994856169227
+            }
+          ],
+          "latency_ms": 0.05335000014383695,
+          "metrics": null,
+          "answer": "## 回答\n\n**文件未提供此資訊。**\n\n檢索內容為國立臺灣科技大學資訊工程系研究生畢業學位口試時程表，內容包含口試申請程序、口試前準備、口試當日注意事項及口試後論文繳交流程等，但**文件中未提及**因颱風停班停課而須延後口試時的申請改期方式。\n\n如需此項資訊，建議直接洽詢資工系辦公室或教務處相關承辦人員確認。",
+          "generation_latency_ms": 10422.81988600007,
+          "judgement": {
+            "helpfulness": 2,
+            "faithfulness": 1,
+            "missing_facts": [],
+            "unsupported_claims": [],
+            "reason": "回答明確承認文件不足，表明檢索內容未提及颱風停班停課導致口試延期的申請程序，並建議洽詢系辦或教務處確認，未做猜測。Faithfulness 方面，回答中所有聲明皆與 retrieved context 內容一致，context 確實未提及颱風相關口試改期程序。",
+            "raw_faithfulness": 1,
+            "strict_pass": 1,
+            "judge": "MiniMax-M2.7"
+          },
+          "judge_latency_ms": 9655.757504000121
+        }
+      }
+    }
+  ],
+  "summary": {
+    "bm25": {
+      "recall_at_5": 1.0,
+      "mrr": 0.8846153846153846,
+      "context_sufficiency_at_5": 1.0,
+      "retrieval_latency_ms_mean": 1.2989048667501872,
+      "helpfulness_mean": 1.9333333333333333,
+      "faithfulness_pass_rate": 0.9333333333333333,
+      "strict_pass_rate": 0.9333333333333333
+    },
+    "vector": {
+      "recall_at_5": 1.0,
+      "mrr": 0.8397435897435896,
+      "context_sufficiency_at_5": 1.0,
+      "retrieval_latency_ms_mean": 35.14622573326657,
+      "helpfulness_mean": 1.8666666666666667,
+      "faithfulness_pass_rate": 0.8666666666666667,
+      "strict_pass_rate": 0.8666666666666667
+    },
+    "hybrid": {
+      "recall_at_5": 1.0,
+      "mrr": 0.8846153846153846,
+      "context_sufficiency_at_5": 1.0,
+      "retrieval_latency_ms_mean": 0.07014959995406873,
+      "helpfulness_mean": 1.9333333333333333,
+      "faithfulness_pass_rate": 1.0,
+      "strict_pass_rate": 0.9333333333333333
+    }
+  }
+}

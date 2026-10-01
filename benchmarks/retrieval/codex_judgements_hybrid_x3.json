@@ -1,0 +1,73 @@
+{
+  "judge": "Codex",
+  "answer_model": "MiniMax-M2.7",
+  "retrieval_method": "hybrid",
+  "top_k": 3,
+  "answer_runs": 3,
+  "rubric": {
+    "helpfulness": "2 = complete and directly helpful; 1 = partially helpful or incomplete; 0 = wrong, misleading, or an unanswerable item that guesses.",
+    "faithfulness": "1 = every factual claim is supported by the actual Hybrid Top-3 context; 0 = at least one unsupported or contradictory factual claim.",
+    "strict_pass": "helpfulness must equal 2 and faithfulness must equal 1."
+  },
+  "judgements": [
+    {"question_id":"Q01","run":1,"helpfulness":2,"faithfulness":1,"reason":"兩學期日期完整且有來源。"},
+    {"question_id":"Q01","run":2,"helpfulness":2,"faithfulness":1,"reason":"兩學期日期完整且有來源。"},
+    {"question_id":"Q01","run":3,"helpfulness":2,"faithfulness":1,"reason":"兩學期日期完整且有來源。"},
+
+    {"question_id":"Q02","run":1,"helpfulness":2,"faithfulness":1,"reason":"30%（含）門檻及篩選條件均有來源。"},
+    {"question_id":"Q02","run":2,"helpfulness":2,"faithfulness":1,"reason":"30%（含）門檻及篩選條件均有來源。"},
+    {"question_id":"Q02","run":3,"helpfulness":2,"faithfulness":1,"reason":"30%（含）門檻及篩選條件均有來源。"},
+
+    {"question_id":"Q03","run":1,"helpfulness":2,"faithfulness":1,"reason":"送審期限與逾期後果皆完整正確。"},
+    {"question_id":"Q03","run":2,"helpfulness":2,"faithfulness":1,"reason":"送審期限與逾期後果皆完整正確。"},
+    {"question_id":"Q03","run":3,"helpfulness":2,"faithfulness":1,"reason":"送審期限與逾期後果皆完整正確。"},
+
+    {"question_id":"Q04","run":1,"helpfulness":2,"faithfulness":1,"reason":"兩項線上作業與兩份申請文件皆正確。"},
+    {"question_id":"Q04","run":2,"helpfulness":2,"faithfulness":1,"reason":"兩項線上作業、系統輸入與兩份申請文件皆正確。"},
+    {"question_id":"Q04","run":3,"helpfulness":2,"faithfulness":1,"reason":"兩項線上作業、系統輸入與兩份申請文件皆正確。"},
+
+    {"question_id":"Q05","run":1,"helpfulness":2,"faithfulness":1,"reason":"期限、系辦、申請單與當日轉交皆正確。"},
+    {"question_id":"Q05","run":2,"helpfulness":2,"faithfulness":1,"reason":"期限、系辦、申請單與當日轉交皆正確。"},
+    {"question_id":"Q05","run":3,"helpfulness":2,"faithfulness":1,"reason":"期限、系辦、申請單與當日轉交皆正確。"},
+
+    {"question_id":"Q06","run":1,"helpfulness":2,"faithfulness":1,"reason":"表件及份數要求完整且有來源。"},
+    {"question_id":"Q06","run":2,"helpfulness":2,"faithfulness":1,"reason":"表件及份數要求完整且有來源。"},
+    {"question_id":"Q06","run":3,"helpfulness":2,"faithfulness":1,"reason":"表件及份數要求完整且有來源。"},
+
+    {"question_id":"Q07","run":1,"helpfulness":2,"faithfulness":1,"reason":"評分表、審定書及留存 email 要求完整正確。"},
+    {"question_id":"Q07","run":2,"helpfulness":2,"faithfulness":1,"reason":"評分表、審定書及留存 email 要求完整正確。"},
+    {"question_id":"Q07","run":3,"helpfulness":2,"faithfulness":1,"reason":"評分表、審定書及留存 email 要求完整正確。"},
+
+    {"question_id":"Q08","run":1,"helpfulness":2,"faithfulness":1,"reason":"博士與碩士在系辦、圖書館的論文版本皆完整正確。"},
+    {"question_id":"Q08","run":2,"helpfulness":2,"faithfulness":1,"reason":"博士與碩士在系辦、圖書館的論文版本皆完整正確。"},
+    {"question_id":"Q08","run":3,"helpfulness":2,"faithfulness":1,"reason":"博士與碩士在系辦、圖書館的論文版本皆完整正確。"},
+
+    {"question_id":"Q09","run":1,"helpfulness":2,"faithfulness":1,"reason":"申貸資格、免息與證明要求皆有來源。"},
+    {"question_id":"Q09","run":2,"helpfulness":2,"faithfulness":0,"reason":"核心結論正確，但把免息擴寫為政府全額補助；Top 3 未說明利息由誰負擔。"},
+    {"question_id":"Q09","run":3,"helpfulness":2,"faithfulness":0,"reason":"核心結論正確，但加入政府補助利息的無來源說明。"},
+
+    {"question_id":"Q10","run":1,"helpfulness":2,"faithfulness":1,"reason":"四個步驟、期限及繳交資料皆有來源。"},
+    {"question_id":"Q10","run":2,"helpfulness":2,"faithfulness":1,"reason":"四個步驟、期限及補充說明皆有來源。"},
+    {"question_id":"Q10","run":3,"helpfulness":2,"faithfulness":1,"reason":"四個步驟、期限、網址及繳交資料皆有來源。"},
+
+    {"question_id":"Q11","run":1,"helpfulness":2,"faithfulness":0,"reason":"文件與逾期後果均正確，但加入『催繳學雜費原價金額』；Top 3 只寫催繳學雜費。"},
+    {"question_id":"Q11","run":2,"helpfulness":2,"faithfulness":1,"reason":"四項文件及逾期後果皆完整正確。"},
+    {"question_id":"Q11","run":3,"helpfulness":2,"faithfulness":1,"reason":"四項文件及逾期後果皆完整正確。"},
+
+    {"question_id":"Q12","run":1,"helpfulness":2,"faithfulness":1,"reason":"三類費用的資格、金額與證明要求均完整且有來源。"},
+    {"question_id":"Q12","run":2,"helpfulness":2,"faithfulness":1,"reason":"三類費用的資格、金額與證明要求均完整且有來源。"},
+    {"question_id":"Q12","run":3,"helpfulness":2,"faithfulness":0,"reason":"核心回答完整，但加入生活費由銀行依需求與還款能力核定、住宿保證金須用現金等無來源細節。"},
+
+    {"question_id":"Q13","run":1,"helpfulness":2,"faithfulness":1,"reason":"文件、保證人到場及線上對保差異符合原始表格語意。"},
+    {"question_id":"Q13","run":2,"helpfulness":2,"faithfulness":1,"reason":"完整呈現曾申貸者與新申請者的文件、保證人及對保差異。"},
+    {"question_id":"Q13","run":3,"helpfulness":2,"faithfulness":1,"reason":"依原始表格，新申請者保證人須親自到場；回答的臨櫃差異有文件依據。"},
+
+    {"question_id":"Q14","run":1,"helpfulness":0,"faithfulness":0,"reason":"雖承認文件不足，仍推測筆電若歸為書籍費即可貸 3,000 元，違反無答案題不得猜測的要求。"},
+    {"question_id":"Q14","run":2,"helpfulness":2,"faithfulness":1,"reason":"明確表示文件無法確認筆電是否可貸，已知額度與聯絡資訊均有來源。"},
+    {"question_id":"Q14","run":3,"helpfulness":0,"faithfulness":0,"reason":"推測筆電可作為學習用品使用書籍費，並加入額度依銀行規定的無來源說明。"},
+
+    {"question_id":"Q15","run":1,"helpfulness":2,"faithfulness":1,"reason":"正確表示文件沒有颱風改期程序，未虛構流程。"},
+    {"question_id":"Q15","run":2,"helpfulness":2,"faithfulness":1,"reason":"正確表示文件沒有颱風改期程序，未虛構流程。"},
+    {"question_id":"Q15","run":3,"helpfulness":2,"faithfulness":1,"reason":"正確表示文件沒有颱風改期程序，未虛構流程。"}
+  ]
+}

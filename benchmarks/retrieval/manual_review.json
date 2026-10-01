@@ -1,0 +1,95 @@
+{
+  "reviewer": "Codex manual source-grounded audit",
+  "reviewed_at": "2026-09-28",
+  "policy": {
+    "helpfulness": "2 = complete and direct; 1 = partially useful; 0 = wrong, misleading, or an unanswerable item that guesses.",
+    "faithfulness": "1 only when every factual detail is entailed by the retrieved top-five chunks; otherwise 0.",
+    "unanswerable": "Q14 and Q15 receive helpfulness 2 only for an explicit abstention without a speculative answer."
+  },
+  "overrides": [
+    {
+      "question_id": "Q04",
+      "method": "vector",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The substantive answer is correct, but it explicitly attributes the facts to chunk 0004; the application steps are in chunk 0003."
+    },
+    {
+      "question_id": "Q07",
+      "method": "hybrid",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The required procedure is correct, but the answer adds unsupported implementation details: signing on paper, PDF or photographed files, and sending the files specifically to the student."
+    },
+    {
+      "question_id": "Q08",
+      "method": "vector",
+      "helpfulness": 2,
+      "faithfulness": 1,
+      "reason": "Automatic-judge false negative: the answer does include the red hardcover library copy for doctoral students and all other required copies."
+    },
+    {
+      "question_id": "Q09",
+      "method": "vector",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The eligibility and interest result are correct, but the retrieved chunks only say interest-free; they do not state that the government pays the interest."
+    },
+    {
+      "question_id": "Q09",
+      "method": "hybrid",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The eligibility and interest result are correct, but the retrieved chunks only say interest-free; they do not state that the government pays the interest."
+    },
+    {
+      "question_id": "Q12",
+      "method": "bm25",
+      "helpfulness": 1,
+      "faithfulness": 0,
+      "reason": "The answer implies ordinary students may also borrow living expenses and merely lack a special document requirement, contradicting the corpus restriction to low- and middle-low-income households."
+    },
+    {
+      "question_id": "Q12",
+      "method": "hybrid",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The core eligibility is correct, but the answer adds unsupported details such as per-semester limits, bank-determined amounts, example proof documents, and paying the housing deposit in cash or by another method."
+    },
+    {
+      "question_id": "Q13",
+      "method": "bm25",
+      "helpfulness": 2,
+      "faithfulness": 0,
+      "reason": "The comparison is useful, but its table attaches the new-student student-card exemption to the previous-borrower column."
+    },
+    {
+      "question_id": "Q13",
+      "method": "vector",
+      "helpfulness": 1,
+      "faithfulness": 0,
+      "reason": "The answer incorrectly says a first-time applicant cannot use online signing and must personally visit a branch; the retrieved context allows branch or online signing and only says the guarantor must attend under the new-applicant rules."
+    },
+    {
+      "question_id": "Q14",
+      "method": "bm25",
+      "helpfulness": 0,
+      "faithfulness": 0,
+      "reason": "The answer acknowledges insufficient evidence but speculates that a laptop may fall under the book allowance, violating the unanswerable-item rule."
+    },
+    {
+      "question_id": "Q14",
+      "method": "vector",
+      "helpfulness": 0,
+      "faithfulness": 0,
+      "reason": "The answer ultimately abstains but first speculates that laptops are usually categorized as book expenses, which is absent from the retrieved chunks."
+    },
+    {
+      "question_id": "Q14",
+      "method": "hybrid",
+      "helpfulness": 0,
+      "faithfulness": 0,
+      "reason": "The answer infers from omission that laptops cannot be financed and then suggests other funding routes; neither claim is established by the retrieved chunks."
+    }
+  ]
+}
