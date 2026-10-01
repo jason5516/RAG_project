@@ -6,3 +6,6 @@ chroma_db/
 .env
 *.pyc
 .vscode/
+tools/
+deliverables/
+assets/
